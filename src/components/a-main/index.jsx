@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Cards from '../cards';
 import './styles.css'
 
 function Main (){
@@ -20,9 +21,11 @@ function Main (){
     return(
         
         <div>
-            <input onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
-            <div>{geoCode[0].lat}</div>
-            <div>{geoCode[0].lon}</div>
+            <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
+            <div>{geoCode[0]?.lat}</div>
+            <div>{geoCode[0]?.lon}</div>
+
+            <Cards geoCode={geoCode} ></Cards>
         </div>
     )
 }

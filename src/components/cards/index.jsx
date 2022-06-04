@@ -1,8 +1,52 @@
+import { useEffect, useState } from 'react';
 import './styles.css'
+import logo from "../../assets/Anuncio_lateral1.svg"
+import Forecast from '../forecast';
+import Week from '../week';
 
-function Cards (){
-    return(
-        <></>
+function Cards({ geoCode }) {
+
+    const [cities, setCities] = useState({})
+
+    useEffect(() => {
+        if (geoCode[0]) {
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=382ffd2ff5479a9032545c1069dcec64`)
+                .then(res => res.json())
+                .then(data => setCities(data))
+        }
+    }, [geoCode])
+
+    let date = new Date()
+    const today = [date.getDate(), " ", date.getMonth() + 1, " ", date.getFullYear()];
+    const kelvin = cities?.current?.temp;
+    const celcius = Math.round(kelvin - 273.15);
+    const farenheit = Math.round(celcius * 9 / 5 + 32);
+
+    return (
+
+        <>
+
+            <div className='containers-cities'>
+                <div style={{ width: 558, height: 500 }}>
+                    <h1>{geoCode[0]?.name}</h1>
+                    <p>{today}</p>
+                    <div className='weather-temperature'>
+                        <img style={{ width: 400 }} src={`http://openweathermap.org/img/wn/${cities?.current?.weather[0].icon}@4x.png`} alt="" />
+                        <div className='celcius-farenheit'>
+                            {celcius && <p>{celcius}ºC</p>}
+                            {farenheit && <p>{farenheit}ºF</p>}
+                        </div>
+                    </div>
+                </div>
+                <div style={{ width: 558, height: 500 }} >
+                    <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                </div>
+            </div>
+            <div>
+                <Forecast cities={cities}></Forecast>
+                <Week cities={cities}></Week>
+            </div>
+        </>
     )
 }
 
