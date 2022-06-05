@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:700|Rubik:400,300,500|Nunito:700");
+
+.weekday {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 64px;
+    width: 171px;
+    height: 252px;
+    background: linear-gradient(180deg, #2B334A 0%, #0E1122 100%);
+    border-radius: 15px;
+    /*background: url('../../assets/images/Icon_sol.svg') 50% 50% no-repeat;*/
+}
+
+.soleado {
+    background: url('../../assets/images/icon_sol.svg') 70% 70% no-repeat;
+    height:60px;
+    width:60px;
+    -webkit-filter: invert(.99); /* safari 6.0 - 9.0 */
+          filter: invert(.99);
+}
+
+.nublado {
+    background: url('../../assets/images/icon_nube.svg') 70% 70% no-repeat;
+    height:60px;
+    width:60px;
+    -webkit-filter: invert(.99); /* safari 6.0 - 9.0 */
+          filter: invert(.99);
+}
+
+.part_nublado {
+    background: url('../../assets/images/icon_partnube.svg') 70% 70% no-repeat;
+    height:60px;
+    width:60px;
+    -webkit-filter: invert(.99); /* safari 6.0 - 9.0 */
+          filter: invert(.99);
+}
+
+.lluvia {
+    background: url('../../assets/images/icon_lluvia.svg') 70% 70% no-repeat;
+    height:60px;
+    width:60px;
+    -webkit-filter: invert(.99); /* safari 6.0 - 9.0 */
+          filter: invert(.99);
+}
+
+.doblenube {
+    background: url('../../assets/images/icon_tormenta.svg') 70% 70% no-repeat;
+    height:60px;
+    width:60px;
+    -webkit-filter: invert(.99); /* safari 6.0 - 9.0 */
+          filter: invert(.99);
+}
+
+.day {
+    width: 163px;
+    height: 30px;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
