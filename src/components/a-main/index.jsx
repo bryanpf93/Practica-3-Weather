@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Cards from '../cards';
+import Pictures from '../pictures';
+
 import './styles.css'
 
 function Main (){
@@ -19,7 +21,7 @@ function Main (){
     },[text])
 
     return(
-        
+        <>
         <div>
             <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
             <div>{geoCode[0]?.lat}</div>
@@ -27,6 +29,8 @@ function Main (){
 
             <Cards geoCode={geoCode} ></Cards>
         </div>
+        <Pictures></Pictures>
+        </>
     )
 }
 
