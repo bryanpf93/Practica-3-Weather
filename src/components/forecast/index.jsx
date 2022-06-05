@@ -20,22 +20,22 @@ function Forecast() {
             <div className='container_single'>
                 <p>ALTURA OLA</p>
                 <img src={height} alt="" />
-                <p>0.8</p>
+                <p style={{ fontSize: 80 }}>0.8</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCIÓN OLA</p>
                 <img src={direction} alt="" />
-                <p>WN</p>
+                <p style={{ fontSize: 80 }}>WN</p>
             </div>
             <div className='container_single'>
                 <p>VIENTO</p>
                 <img src={wind} alt="" />
-                <p>8.75</p>
+                <p style={{ fontSize: 80 }}>8.75</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCION</p>
                 <img src={windDir} alt="" />
-                <p>WSW</p>
+                <p style={{ fontSize: 80 }}>WSW</p>
             </div>
             <div className='container_single'>
                 <p>PROBABILIDAD</p>

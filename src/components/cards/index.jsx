@@ -28,8 +28,8 @@ function Cards({ geoCode }) {
 
             <div className='containers-cities'>
                 <div style={{ width: 558, height: 500 }}>
-                    <h1>{geoCode[0]?.name}</h1>
-                    <p>{today}</p>
+                    <p className='title'>{geoCode[0]?.name}</p>
+                    <p className='today'>{today}</p>
                     <div className='weather-temperature'>
                         <img style={{ width: 400 }} src={`http://openweathermap.org/img/wn/${cities?.current?.weather[0].icon}@4x.png`} alt="" />
                         <div className='celcius-farenheit'>

@@ -28,13 +28,13 @@ function Pictures() {
     return (
         <>
             <Carousel responsive={responsive}>
-                <div><img src={playa1}></img></div>
-                <div><img src={playa2}></img></div>
-                <div><img src={playa3}></img></div>
-                <div><img src={playa4}></img></div>
-                <div><img src={playa5}></img></div>
-                <div><img src={playa6}></img></div>
-                <div><img src={playa7}></img></div>
+                <div><img src={playa1} alt=""></img></div>
+                <div><img src={playa2} alt=""></img></div>
+                <div><img src={playa3} alt=""></img></div>
+                <div><img src={playa4} alt=""></img></div>
+                <div><img src={playa5} alt=""></img></div>
+                <div><img src={playa6} alt=""></img></div>
+                <div><img src={playa7} alt=""></img></div>
             </Carousel>
         </>
     )

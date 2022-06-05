@@ -7,6 +7,14 @@
     color: white;
 }
 
+.title {
+    font-size: 80px;
+}
+
+.today {
+    font-size: 40px;
+}
+
 .weather-temperature{
     display: flex;
 }
