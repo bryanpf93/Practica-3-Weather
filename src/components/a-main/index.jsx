@@ -18,7 +18,7 @@ function Main() {
 
     useEffect(() => {
         {
-            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${process.env.REACT_APP_API_KEY}`)
+            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=1426ce2a7fb23a02e2d8aef816d01a76`)
                 .then(res => res.json())
                 .then(data => setGeoCode(data))
         }
@@ -33,10 +33,11 @@ function Main() {
 
                 <Cards geoCode={geoCode} ></Cards>
             </div>
-            <p className='prox-days'>MAPA DEL SITIO</p>
+            <p className='site-map'>MAPA DEL SITIO</p>
             <div className='container-map' >
                 <Mapa></Mapa>
             </div>
+            <p className='pictures-site'>FOTOS DEL SITIO</p>
             <Pictures></Pictures>
 
 
