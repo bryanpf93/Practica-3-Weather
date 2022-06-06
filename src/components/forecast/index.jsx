@@ -11,6 +11,7 @@ import direction from "../../assets/Icon_wave_direction.svg"
 import height from "../../assets/Icon_wave_height.svg"
 import windDir from "../../assets/Icon_wind_direction.svg"
 import rain from "../../assets/Icon_lluvia.svg"
+import { useEffect , useState } from 'react'
 
 
 function Forecast({ cities }) {
@@ -31,6 +32,30 @@ function Forecast({ cities }) {
     const minutesTwo = dateTwo.getMinutes();
     const timeTwo = `${padTo2Digits(hoursTwo)}:${padTo2Digits(minutesTwo)}`;
 
+    const today = new Date();
+    const unixstart = parseInt((today.getTime() / 1000).toFixed(0));
+    const params = 'waveHeight,waveDirection,windSpeed,windDirection,humidity,wavePeriod';
+    const STORMGLASS_KEY = `${process.env.REACT_APP_STORMGLASS_KEY}`;
+
+    const [sgResponse, setSGResponse] = useState('');
+
+    const location = [43.0468746,-2.2771408];
+
+    useEffect(() => {
+
+
+        fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
+            headers: {
+            'Authorization': STORMGLASS_KEY
+            }
+        }).then((response) => response.json()).then((jsonData) => {
+            // solo la primera hora (actual)
+            console.log(jsonData.hours[0]);
+            setSGResponse(jsonData.hours[0]);
+        });
+
+    },[])
+
 
     return (
 
@@ -38,22 +63,24 @@ function Forecast({ cities }) {
             <div className='container_single'>
                 <p>ALTURA OLA</p>
                 <img src={height} alt="" />
-                <p style={{ fontSize: 80 }}>0.8</p>
+                <p style={{ fontSize: 70 }}>{sgResponse?.waveHeight?.sg}</p>
+                <p>m</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCIÓN OLA</p>
                 <img src={direction} alt="" />
-                <p style={{ fontSize: 80 }}>WN</p>
+                <p style={{ fontSize: 50 }}>{sgResponse?.waveDirection?.sg}º</p>
             </div>
             <div className='container_single'>
                 <p>VIENTO</p>
                 <img src={wind} alt="" />
-                <p style={{ fontSize: 80 }}>{cities?.current?.wind_speed}</p>
+                <p style={{ fontSize: 60 }}>{sgResponse?.windSpeed?.sg}</p>
+                <p>m/s</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCION</p>
                 <img src={windDir} alt="" />
-                <p style={{ fontSize: 80 }}>WSW</p>
+                <p style={{ fontSize: 50 }}>{sgResponse?.windDirection?.sg}º</p>
             </div>
             <div className='container_single'>
                 <p>PROBABILIDAD</p>
@@ -99,8 +126,8 @@ function Forecast({ cities }) {
                 <p>HUMEDAD</p>
                 <img src={humidity} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{cities?.current?.humidity}</p>
-                    <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
+                    <p style={{ fontSize: 60, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.humidity?.sg}</p>
+                    <p>%</p>
                 </div>
             </div>
             <div className='container_double'>
@@ -119,7 +146,7 @@ function Forecast({ cities }) {
                 <p>PERIODO OLA</p>
                 <img src={period} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>8</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.wavePeriod?.sg}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>seg</p>
                 </div>
             </div>

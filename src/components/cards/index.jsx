@@ -7,6 +7,7 @@ import Week from '../week';
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
+    const gps  = [geoCode[0]?.lat,geoCode[0]?.lon];
 
     useEffect(() => {
         if (geoCode[0]) {
@@ -44,7 +45,7 @@ function Cards({ geoCode }) {
             </div>
             <div>
                 <Forecast cities={cities}></Forecast>
-                <Week cities={cities}></Week>
+                <Week cities={cities} coords={gps}></Week>
             </div>
         </>
     )
