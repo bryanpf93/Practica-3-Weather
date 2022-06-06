@@ -33,10 +33,11 @@ function Main() {
 
                 <Cards geoCode={geoCode} ></Cards>
             </div>
-            <p className='prox-days'>MAPA DEL SITIO</p>
+            <p className='site-map'>MAPA DEL SITIO</p>
             <div className='container-map' >
                 <Mapa></Mapa>
             </div>
+            <p className='pictures-site'>FOTOS DEL SITIO</p>
             <Pictures></Pictures>
 
 

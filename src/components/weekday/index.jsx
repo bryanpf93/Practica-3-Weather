@@ -14,7 +14,7 @@ function Weekday (props){
     desc_tiempo = part_nube.includes(props.desc_tiempo.main) ? 'part_nublado' : desc_tiempo;
     desc_tiempo = lluvia.includes(props.desc_tiempo.main) ? 'lluvia' : desc_tiempo;
     desc_tiempo = tormenta.includes(props.desc_tiempo.main) ? 'doblenube' : desc_tiempo;
-    console.log(desc_tiempo);
+    // console.log(desc_tiempo);
 
     var indice = props.indice+1;
     //var desc_tiempo = `${props.desc_tiempo.main}`;

@@ -8,7 +8,7 @@
 
 .container-map{
 
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     width: 1116px;
     height: 509px;
     display: flex;
@@ -19,7 +19,13 @@
 }
 
 
-.prox-days{
+.site-map{
     color:  #0B98B1;
     margin: 60px 0 15px 0;
+    font-size: 40px;
+}
+
+.pictures-site{
+    color:  #0B98B1;
+    font-size: 40px;
 }

@@ -59,7 +59,7 @@ function Forecast({ cities }) {
                 <p>PROBABILIDAD</p>
                 <img src={rain} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>20</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{20}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
                 </div>
             </div>

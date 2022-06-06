@@ -6,7 +6,7 @@ function Week (weeklyWeather, timezone){
 
     const [forecastResponse, setForecast] = useState(false);
     const OPENWEATHER_KEY = `${process.env.REACT_APP_OPENWEATHER_KEY}`;
-    console.log(process.env.REACT_APP_OPENWEATHER_KEY);
+    // console.log(process.env.REACT_APP_OPENWEATHER_KEY);
 
     const location = [43.0468746,-2.2771408];
 
@@ -41,7 +41,7 @@ function Week (weeklyWeather, timezone){
         <>
         <div className='weekContainer'>
             <div className='weeklytitle'>
-                <h3>PRÓXIMOS DÍAS</h3>
+                <p className='prox-days'>PRÓXIMOS DÍAS</p>
             </div>
             <div className='weekly'>
                 {Object.values(forecastobject).map((v,k) => (
