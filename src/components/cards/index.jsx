@@ -22,6 +22,17 @@ function Cards({ geoCode }) {
     const celcius = Math.round(kelvin - 273.15);
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
+    const iconWeather = cities?.current?.weather[0]?.icon;
+    
+    switch (iconWeather) {
+        case 10n:
+            
+            break;
+    
+        default:
+            break;
+    }
+
     return (
 
         <>
@@ -31,7 +42,7 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
-                        <img style={{ width: 400 }} src={`http://openweathermap.org/img/wn/${cities?.current?.weather[0].icon}@4x.png`} alt="" />
+                        <img style={{ width: 400 }} src={a} alt="" />
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}
@@ -44,7 +55,7 @@ function Cards({ geoCode }) {
             </div>
             <div>
                 <Forecast cities={cities}></Forecast>
-                <Week cities={cities}></Week>
+                {/* <Week cities={cities}></Week> */}
             </div>
         </>
     )
