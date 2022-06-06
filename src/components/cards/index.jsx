@@ -42,7 +42,7 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
-                        <img style={{ width: 400 }} src={a} alt="" />
+                        <img style={{ width: 400 }} src={iconWeather} alt="" />
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}

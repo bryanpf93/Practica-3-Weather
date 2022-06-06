@@ -11,9 +11,10 @@ function Main() {
     const [geoCode, setGeoCode] = useState([])
     const [text, setText] = useState('')
 
-    const handleText = e => {
-        const val = e.target.value.toLowerCase()
-        setText(val)
+    const handleKeyPress = (event) => {
+        if(event.key === 'Enter'){
+        const val = event.target.value.toLowerCase()
+        setText(val)}
     }
 
     useEffect(() => {
@@ -27,7 +28,7 @@ function Main() {
     return (
         <>
             <div>
-                <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
+                <input className='input' onKeyPress={handleKeyPress} type='text' placeholder='Introduce una localidad...'></input>
                 <div>{geoCode[0]?.lat}</div>
                 <div>{geoCode[0]?.lon}</div>
 
