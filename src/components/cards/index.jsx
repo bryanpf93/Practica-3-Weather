@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles.css'
-import logo from "../../assets/Anuncio_lateral1.svg"
+import logo from "../../assets/olassi.svg"
 import Forecast from '../forecast';
 import Week from '../week';
 
