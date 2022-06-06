@@ -18,7 +18,22 @@ function Forecast({ cities }) {
 
     function padTo2Digits(num) {
         return num.toString().padStart(2, '0');
-      }
+    }
+
+    function degreesToCoordinates(degrees) {
+        // Define array of directions
+        const directions = ['Norte', 'Nordeste', 'Este', 'Sureste', 'Sur', 'Sudoeste', 'Oeste', 'Noroeste'];
+        // Split into the 8 directions
+        degrees = degrees * 8 / 360;
+        // round to nearest integer.
+        degrees = Math.round(degrees, 0);
+        // Ensure it's within 0-7
+        degrees = (degrees + 8) % 8
+
+        return directions[degrees];
+    }
+
+    console.log('Dirección: ', degreesToCoordinates(303.66));
 
     const sunRise = cities?.current?.sunrise;
     const date = new Date(sunRise * 1000);
@@ -69,7 +84,7 @@ function Forecast({ cities }) {
             <div className='container_single'>
                 <p>DIRECCIÓN OLA</p>
                 <img src={direction} alt="" />
-                <p style={{ fontSize: 50 }}>{sgResponse?.waveDirection?.sg}º</p>
+                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.waveDirection?.sg)}º</p>
             </div>
             <div className='container_single'>
                 <p>VIENTO</p>
@@ -80,7 +95,7 @@ function Forecast({ cities }) {
             <div className='container_single'>
                 <p>DIRECCION</p>
                 <img src={windDir} alt="" />
-                <p style={{ fontSize: 50 }}>{sgResponse?.windDirection?.sg}º</p>
+                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.windDirection?.sg)}º</p>
             </div>
             <div className='container_single'>
                 <p>PROBABILIDAD</p>

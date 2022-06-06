@@ -6,13 +6,8 @@ function Week (coords){
 
     const [forecastResponse, setForecast] = useState(false);
     const OPENWEATHER_KEY = `${process.env.REACT_APP_OPENWEATHER_KEY}`;
-<<<<<<< HEAD
-    console.log(coords);
-    // Hardoced hasta recibir coordenadas por props desde búsqueda / geolocat
-=======
     // console.log(process.env.REACT_APP_OPENWEATHER_KEY);
 
->>>>>>> develop
     const location = [43.0468746,-2.2771408];
 
     //no funciona todavía (ya funciona jeje)

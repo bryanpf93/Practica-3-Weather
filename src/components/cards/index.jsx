@@ -43,7 +43,7 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
-                        <img style={{ width: 400 }} src={a} alt="" />
+                        <img style={{ width: 400 }} src={''} alt="" />
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}
@@ -56,11 +56,7 @@ function Cards({ geoCode }) {
             </div>
             <div>
                 <Forecast cities={cities}></Forecast>
-<<<<<<< HEAD
-                <Week cities={cities} coords={gps}></Week>
-=======
                 {/* <Week cities={cities}></Week> */}
->>>>>>> develop
             </div>
         </>
     )
