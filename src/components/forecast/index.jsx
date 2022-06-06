@@ -13,7 +13,25 @@ import windDir from "../../assets/Icon_wind_direction.svg"
 import rain from "../../assets/Icon_lluvia.svg"
 
 
-function Forecast() {
+function Forecast({ cities }) {
+
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+      }
+
+    const sunRise = cities?.current?.sunrise;
+    const date = new Date(sunRise * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
+
+    const sunSet = cities?.current?.sunset;
+    const dateTwo = new Date(sunSet * 1000);
+    const hoursTwo = dateTwo.getHours();
+    const minutesTwo = dateTwo.getMinutes();
+    const timeTwo = `${padTo2Digits(hoursTwo)}:${padTo2Digits(minutesTwo)}`;
+
+
     return (
 
         <div className='main'>
@@ -30,7 +48,7 @@ function Forecast() {
             <div className='container_single'>
                 <p>VIENTO</p>
                 <img src={wind} alt="" />
-                <p style={{ fontSize: 80 }}>8.75</p>
+                <p style={{ fontSize: 80 }}>{cities?.current?.wind_speed}</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCION</p>
@@ -41,7 +59,7 @@ function Forecast() {
                 <p>PROBABILIDAD</p>
                 <img src={rain} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>0</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>20</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
                 </div>
             </div>
@@ -81,7 +99,7 @@ function Forecast() {
                 <p>HUMEDAD</p>
                 <img src={humidity} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>15</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{cities?.current?.humidity}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
                 </div>
             </div>
@@ -89,12 +107,12 @@ function Forecast() {
                 <div className='sub-container'>
                     <p>AMANECER</p>
                     <img src={sunrise} alt="" />
-                    <p style={{ fontSize:80}}>06:35</p>
+                    { cities ? <p style={{ fontSize: 80 }}>{time}</p> : "00:00"}
                 </div>
                 <div className='sub-container'>
                     <p>ATARDECER</p>
                     <img src={sunset} alt="" />
-                    <p style={{ fontSize:80}}>21:35</p>
+                    { cities ? <p style={{ fontSize: 80 }}>{timeTwo}</p>: "00:00"}
                 </div>
             </div>
             <div className='container_single'>
