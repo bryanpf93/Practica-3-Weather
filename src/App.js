@@ -1,8 +1,13 @@
 import './App.css';
+import Main from './components/a-main';
 
 function App() {
   return (
-    <h1>PRACTICA WEATHER</h1>
+    <>
+
+     <Main></Main>
+    </>
+   
   );
 }
 

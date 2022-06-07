@@ -1,0 +1,56 @@
+[
+    {
+        "lat": "36.17704",
+        "lon": "-5.98185",
+        "beach": "Barbate River",
+        "local": "Barbate"
+    },
+    {
+        "lat": "36.08201",
+        "lon": "-5.76406",
+        "beach": "Playa de Bolonia",
+        "local": "Tarifa"
+    },
+    {
+        "lat": "36.29678",
+        "lon": "-6.13241",
+        "beach": "Cabo Roche",
+        "local": "Conil de la Frontera"
+    },
+    {
+        "lat": "43.51951",
+        "lon": "-5.26953",
+        "beach": "Cabo Lastres",
+        "local": "Lastres"
+    },
+    {
+        "lat": "43.61225",
+        "lon": "-5.78940",
+        "beach": "Playa de Luanco",
+        "local": "Luanco"
+    },
+    {
+        "lat": "43.57784",
+        "lon": "-5.96096",
+        "beach": "Salinas",
+        "local": "Avilés"
+    },
+    {
+        "lat": "43.41250",
+        "lon": "-3.42840",
+        "beach": "Laredo",
+        "local": "Laredo"
+    },
+    {
+        "lat": "43.47326",
+        "lon": "-3.78181",
+        "beach": "El Sardinero",
+        "local": "Santander"
+    },
+    {
+        "lat": "43.45377",
+        "lon": "-3.95934",
+        "beach": "Liencres",
+        "local": "Piélagos"
+    }
+]

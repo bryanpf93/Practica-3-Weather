@@ -1,0 +1,31 @@
+.containers-cities{
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    padding: 20px;
+    margin: 20px;
+    color: white;
+}
+
+.title {
+    font-size: 80px;
+}
+
+.today {
+    font-size: 40px;
+}
+
+.weather-temperature{
+    display: flex;
+}
+
+
+.celcius-farenheit{
+    width: 132px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

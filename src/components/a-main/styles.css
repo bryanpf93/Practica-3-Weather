@@ -1,0 +1,36 @@
+.input {
+    width: 1113px;
+    height: 64px;
+    border-radius: 75px;
+    padding: 10px 16px 10px 16px;
+    font-size: 16px;
+}
+
+.container-map{
+
+    margin-bottom: 100px;
+    width: 1116px;
+    height: 509px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom,#2B334A,#0E1122);
+    border-radius: 21.18px;
+}
+
+
+.site-map{
+    color:  #0B98B1;
+    margin: 60px 0 15px 0;
+    font-size: 40px;
+}
+
+.pictures-site{
+    color:  #0B98B1;
+    font-size: 40px;
+}
+
+.waves {
+    font-size: 50px;
+    color: black;
+}

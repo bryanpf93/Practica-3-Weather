@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:700|Rubik:400,300,500|Nunito:700");
+
+.weekContainer{
+    margin-top:60px;
+}
+.weekly {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    margin-top: 20px;
+    width: 1117px;
+    height: 308px;
+
+}
+
+h3 {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    /* identical to box height */
+    text-transform: uppercase;
+    color: #0B98B1;
+
+}
+
+.prox-days {
+    color:  #0B98B1;
+    font-size: 40px;
+}
+
+
