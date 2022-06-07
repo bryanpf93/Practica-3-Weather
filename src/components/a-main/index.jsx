@@ -10,16 +10,12 @@ function Main() {
 
     const [geoCode, setGeoCode] = useState([])
     const [text, setText] = useState('')
+    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
-    const handleKeyPress = (event) => {
-        if(event.key === 'Enter'){
-        const val = event.target.value.toLowerCase()
-        setText(val)}
-    }
 
     useEffect(() => {
         {
-            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=1426ce2a7fb23a02e2d8aef816d01a76`)
+            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_APP_API_KEY}`)
                 .then(res => res.json())
                 .then(data => setGeoCode(data))
         }
@@ -28,7 +24,7 @@ function Main() {
     return (
         <>
             <div>
-                <input className='input' onKeyPress={handleKeyPress} type='text' placeholder='Introduce una localidad...'></input>
+                <input className='input' type='text' placeholder='Introduce una localidad...'></input>
                 <div>{geoCode[0]?.lat}</div>
                 <div>{geoCode[0]?.lon}</div>
 
