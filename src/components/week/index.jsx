@@ -18,7 +18,7 @@ function Week (coords){
             .then(res => res.json())
             .then((data => {
                 //setForecast(data.list.slice(1,7));
-                let sixdayforecast = data.list.slice(1,7);
+                let sixdayforecast = data?.list?.slice(1,7);
                 sixdayforecast.map(d => {
                     setForecast(...forecastResponse, d.weather.main)
                 })

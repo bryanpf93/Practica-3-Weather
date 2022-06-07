@@ -14,7 +14,7 @@ import rain from "../../assets/Icon_lluvia.svg"
 import { useEffect , useState } from 'react'
 
 
-function Forecast({ cities }) {
+function Forecast({ cities, geoCode }) {
 
     function padTo2Digits(num) {
         return num.toString().padStart(2, '0');
@@ -33,7 +33,7 @@ function Forecast({ cities }) {
         return directions[degrees];
     }
 
-    console.log('Dirección: ', degreesToCoordinates(303.66));
+    // console.log('Dirección: ', degreesToCoordinates(303.66));
 
     const sunRise = cities?.current?.sunrise;
     const date = new Date(sunRise * 1000);
@@ -59,17 +59,17 @@ function Forecast({ cities }) {
     useEffect(() => {
 
 
-        fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
+        fetch(`https://api.stormglass.io/v2/weather/point?lat={${location[0]}}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
             headers: {
             'Authorization': STORMGLASS_KEY
             }
         }).then((response) => response.json()).then((jsonData) => {
             // solo la primera hora (actual)
-            console.log(jsonData.hours[0]);
+            // console.log(jsonData.hours[0]);
             setSGResponse(jsonData.hours[0]);
         });
 
-    },[])
+    },[sgResponse])
 
 
     return (

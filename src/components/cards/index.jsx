@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './styles.css'
 import logo from "../../assets/olassi.svg"
 import Forecast from '../forecast';
-// import Week from '../week';
+import Week from '../week';
 import sun from '../../assets/tiempo/sol.svg'
 import rain from '../../assets/tiempo/lluvia.svg'
 import mist from '../../assets/tiempo/niebla.svg'
@@ -33,7 +33,7 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
-    console.log(iconWeather);
+    // console.log(iconWeather);
     
     // switch (iconWeather) {
     //     case "01d":  
@@ -99,8 +99,8 @@ function Cards({ geoCode }) {
                 </div>
             </div>
             <div>
-                <Forecast cities={cities}></Forecast>
-                {/* <Week cities={cities}></Week> */}
+                <Forecast cities={cities} geoCode={geoCode}></Forecast>
+                <Week cities={cities}></Week>
             </div>
         </>
     )

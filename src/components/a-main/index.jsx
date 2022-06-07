@@ -26,6 +26,7 @@ function Main() {
 
     return (
         <>
+            <p className='waves'>WAVES</p>
             <div>
                 <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
                 <div>{geoCode[0]?.lat}</div>
@@ -35,7 +36,7 @@ function Main() {
             </div>
             <p className='site-map'>MAPA DEL SITIO</p>
             <div className='container-map' >
-                <Mapa></Mapa>
+                <Mapa geoCode={geoCode}></Mapa>
             </div>
             <p className='pictures-site'>FOTOS DEL SITIO</p>
             <Pictures></Pictures>
