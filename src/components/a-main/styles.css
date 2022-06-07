@@ -1,3 +1,58 @@
+
+
+.body {
+    background: #0E1122;
+}
+
+.mainContainer{
+    width:100%;
+    background: #0E1122;
+}
+
+.container {
+    background: #0E1122;
+    width: 1440px;
+}
+
+.container-pic { 
+    left: 0;
+    top: 0;
+    background-image:
+    linear-gradient(180deg, rgba(14, 17, 34, 0) 0%, #0E1122 84.64%),
+    url('../../assets/images/background-hero-1.png');
+    height: 975px;
+    background-size: cover;
+}
+
+.searchbar {
+    padding-top:30px;
+}
+
+.content{
+    
+}
+
+.fondo {
+  background-color: #0E1122;
+  height: 2245px;
+  position: absolute;
+  top: 768px;
+  width: 100%;
+  left:0;
+  z-index:-200;
+}
+
+.degradado_hero {
+  height: 975px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(14, 17, 34, 0) 0%, #0E1122 91.64%);
+}
+
+
 .input {
     width: 1113px;
     height: 64px;
@@ -8,7 +63,7 @@
 
 .container-map{
 
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     width: 1116px;
     height: 509px;
     display: flex;
@@ -21,8 +76,8 @@
 
 .site-map{
     color:  #0B98B1;
-    margin: 60px 0 15px 0;
     font-size: 40px;
+    margin: 0px 0 20px 180px;
 }
 
 .pictures-site{
@@ -33,4 +88,5 @@
 .waves {
     font-size: 50px;
     color: black;
+    padding-left: 90px;
 }
