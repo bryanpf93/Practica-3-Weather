@@ -69,17 +69,20 @@ function Forecast({ cities, geoCode }) {
         // todo esto deberá ir en a-main junto con el fetch principal
         // el mismo callback de cambio (text)
 
-        fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
-            headers: {
-            'Authorization': STORMGLASS_KEY
-            }
-        }).then((response) => response.json()).then((jsonData) => {
-            // solo la primera hora (actual)
-            console.log(jsonData.hours[0]);
-            setSGResponse(jsonData.hours[0]);
-        });
+        if (geoCode[0]) {
 
-    },[])
+            fetch(`https://api.stormglass.io/v2/weather/point?lat=${geoCode[0]}&lng=${geoCode[1]}&start=${unixstart}&params=${params}`, {
+                headers: {
+                'Authorization': STORMGLASS_KEY
+                }
+            }).then((response) => response.json()).then((jsonData) => {
+                // solo la primera hora (actual)
+                console.log(jsonData.hours[0]);
+                setSGResponse(jsonData.hours[0]);
+            });
+        }
+
+    },[geoCode])
 
 
     return (
