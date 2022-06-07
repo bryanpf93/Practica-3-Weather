@@ -1,8 +1,8 @@
 import './styles.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Weekday from '../weekday'
 
-function Week (weeklyWeather, timezone){
+function Week (coords){
 
     const [forecastResponse, setForecast] = useState(false);
     const OPENWEATHER_KEY = `${process.env.REACT_APP_OPENWEATHER_KEY}`;
@@ -10,31 +10,35 @@ function Week (weeklyWeather, timezone){
 
     const location = [43.0468746,-2.2771408];
 
-    /* no funciona todavía
+    //no funciona todavía (ya funciona jeje)
 
-    async function getForecast() {
-        //https://api.openweathermap.org/data/2.5
-        await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=43.0468746&lon=-2.2771408&appid=${OPENWEATHER_KEY}`)
+    useEffect(() => {
+        
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location[0]}&lon=${location[1]}&appid=${OPENWEATHER_KEY}`)
             .then(res => res.json())
             .then((data => {
-                //setForecast(data['data']['list'].slice(1,7));
-                //let testforecast = data['data']['list'].slice(1,7);
-                console.log(data);
-                return testforecast;
-            }))
-       
-    }
+                //setForecast(data.list.slice(1,7));
+                let sixdayforecast = data.list.slice(1,7);
+                sixdayforecast.map(d => {
+                    setForecast(...forecastResponse, d.weather.main)
+                })
+                //console.log(forecastResponse);
+                //return testforecast;
+        }))
+        
 
+    }, [])
+    
+    /*
     getForecast().then((testforecast) => {
         console.log('test: ',testforecast);
         Object.values(testforecast).map((k,v) => console.log(k.main.temp));
     });
+    /*/
 
-    */
-
-    // Uso objeto falso de momento hasta que funcione el fetch
+    // Uso objeto falso de momento hasta que me desbaneen la api de openweather
     const forecastobject = [
-        {main:"sunny"},{main:"cloudy"},{main:"rainy"},{main:"partly cloudy"},{main:"thunderstorm"},{main:"sunny"}
+        {main:"Clear"},{main:"Thunderstorm"},{main:"Rain"},{main:"Atmosphere"},{main:"Snow"},{main:"Clouds"}
     ]
 
     return(
