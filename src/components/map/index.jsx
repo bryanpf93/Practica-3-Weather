@@ -9,20 +9,23 @@ function Mapa({geoCode}) {
 
     const location = [43.0468746,-2.2771408];
 
-    return( 
-                  <MapContainer className='map' center={location} zoom={13} scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[41.3828939,2.1774322]}>
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker>
-                </MapContainer>
+    if (geoCode[0]) {
 
-    )
+        return( 
+                    <MapContainer className='map' center={geoCode} zoom={13} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={[geoCode[0],geoCode[1]]}>
+                            <Popup>
+                                A pretty CSS3 popup. <br /> Easily customizable.
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
+
+        )
+    }
 }
 
 export default Mapa;

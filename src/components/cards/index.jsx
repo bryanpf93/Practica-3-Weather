@@ -17,12 +17,16 @@ function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
     const REACT_APP_API_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
+    console.log('Geocode: ', geoCode);
 
     useEffect(() => {
         if (geoCode[0]) {
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_APP_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]}&lon=${geoCode[1]}&exclude=hourly,daily&appid=${REACT_APP_API_KEY}`)
                 .then(res => res.json())
-                .then(data => setCities(data))
+                .then(data => {
+                    setCities(data);
+                    console.log('DATA 1: ', data);
+                })
         }
     }, [geoCode])
 
@@ -33,6 +37,8 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
+
+    //console.log('Cities? :', cities?.current);
        
 
     // switch (iconWeather) {
