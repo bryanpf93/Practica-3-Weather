@@ -11,6 +11,7 @@ function Main() {
 
     const [geoCode, setGeoCode] = useState([])
     const [text, setText] = useState('')
+
     const REACT_API_KEY = process.env.REACT_APP_API_KEY;
 
     // useEffect geolocalización
@@ -27,6 +28,8 @@ function Main() {
     //     })
 
     // }, [])
+
+
 
     useEffect(() => {
         {
@@ -48,6 +51,7 @@ function Main() {
         <>  
 
 
+
             <body>
             <div className='mainContainer'>
             <div className='container'>
@@ -56,8 +60,10 @@ function Main() {
                     <div className='searchbar'>
                         <div className='row justify-content-center'>
                         <input className='input' onKeyPress={handleKeyPress} type='text' placeholder='Introduce una localidad...'></input>
+
                             {/* <div>{geoCode[0]?.lat}</div>
                             <div>{geoCode[0]?.lon}</div> */}
+
                         </div>
                     </div>
                     <div className='content justify-content-center'>

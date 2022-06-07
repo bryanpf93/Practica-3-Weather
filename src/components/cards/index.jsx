@@ -16,6 +16,7 @@ import sunCloud from '../../assets/tiempo/nubesol.svg'
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
+
     const REACT_API_KEY = process.env.REACT_APP_API_KEY;
     console.log('Geocode: ', geoCode[0]);
 
@@ -24,6 +25,8 @@ function Cards({ geoCode }) {
     useEffect(() => {
         if (geoCode[0]) {
             fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_API_KEY}`)
+
+    
                 .then(res => res.json())
                 .then(data => {
                     setCities(data);
