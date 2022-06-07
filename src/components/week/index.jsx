@@ -43,10 +43,10 @@ function Week (coords){
 
     return(
         <>
+        <div className='weeklytitle'>
+            <h3>PRÓXIMOS DÍAS</h3>
+        </div>
         <div className='weekContainer'>
-            <div className='weeklytitle'>
-                <p className='prox-days'>PRÓXIMOS DÍAS</p>
-            </div>
             <div className='weekly'>
                 {Object.values(forecastobject).map((v,k) => (
                     <Weekday key={k} indice={k} desc_tiempo={v}></Weekday>
