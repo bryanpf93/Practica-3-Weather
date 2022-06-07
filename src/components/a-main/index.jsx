@@ -11,8 +11,8 @@ function Main() {
 
     const [geoCode, setGeoCode] = useState([])
     const [text, setText] = useState('')
-    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
-
+    const REACT_APP_API_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
+   
 
     useEffect(() => {
         {

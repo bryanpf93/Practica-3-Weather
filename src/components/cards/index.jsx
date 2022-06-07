@@ -16,7 +16,7 @@ import sunCloud from '../../assets/tiempo/nubesol.svg'
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
-    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+    const REACT_APP_API_KEY = process.env.REACT_APP_OPENWEATHER_KEY;
 
     useEffect(() => {
         if (geoCode[0]) {
