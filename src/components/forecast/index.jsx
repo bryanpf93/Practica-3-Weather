@@ -14,7 +14,7 @@ import rain from "../../assets/Icon_lluvia.svg"
 import { useEffect , useState } from 'react'
 
 
-function Forecast({ cities }) {
+function Forecast({ cities, geoCode }) {
 
     function padTo2Digits(num) {
         return num.toString().padStart(2, '0');
@@ -34,7 +34,7 @@ function Forecast({ cities }) {
         return directions[degrees];
     }
 
-    //console.log('Dirección: ', degreesToCoordinates(303.66));
+    // console.log('Dirección: ', degreesToCoordinates(303.66));
 
     const sunRise = cities?.current?.sunrise;
     const date = new Date(sunRise * 1000);
@@ -47,6 +47,7 @@ function Forecast({ cities }) {
     const hoursTwo = dateTwo.getHours();
     const minutesTwo = dateTwo.getMinutes();
     const timeTwo = `${padTo2Digits(hoursTwo)}:${padTo2Digits(minutesTwo)}`;
+    
 
     const today = new Date();
     // fecha unix porque la pide la api de stormglass
@@ -60,9 +61,13 @@ function Forecast({ cities }) {
     const location = [43.0468746,-2.2771408];
     const locatMadrid = [14.7110139,-17.5358652];
 
+    const randomEnergy = Math.floor(Math.random() * (100 - 1) + 1);
+
 
     useEffect(() => {
 
+        // todo esto deberá ir en a-main junto con el fetch principal
+        // el mismo callback de cambio (text)
 
         fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
             headers: {
@@ -136,7 +141,7 @@ function Forecast({ cities }) {
                 <p>ENERGÍA OLA</p>
                 <img src={energy} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>86.1</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{randomEnergy}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>kJ</p>
                 </div>
             </div>

@@ -3,10 +3,14 @@ import './styles.css'
 // import 'leaflet/dist/leaflet.css';
 
 
-function Mapa(){
+function Mapa({geoCode}) {
+
+    console.log(geoCode);
+
+    const location = [43.0468746,-2.2771408];
 
     return( 
-                  <MapContainer className='map' center={[41.3828939,2.1774322]} zoom={13} scrollWheelZoom={false}>
+                  <MapContainer className='map' center={location} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

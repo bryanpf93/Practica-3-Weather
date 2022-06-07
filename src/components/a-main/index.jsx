@@ -11,29 +11,38 @@ function Main() {
 
     const [geoCode, setGeoCode] = useState([])
     const [text, setText] = useState('')
+    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
-    const handleText = e => {
-        const val = e.target.value.toLowerCase()
-        setText(val)
-    }
 
     useEffect(() => {
         {
-            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=1426ce2a7fb23a02e2d8aef816d01a76`)
+            text && fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_APP_API_KEY}`)
                 .then(res => res.json())
                 .then(data => setGeoCode(data))
         }
     }, [text])
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            setText(e.target.value.toLowerCase())
+        }
+
+    }
+
+
+
     return (
         <>  
+
+
             <body>
             <div className='mainContainer'>
             <div className='container'>
                 <div className='container-pic'>
+                    <p className='waves'>WAVES</p>
                     <div className='searchbar'>
                         <div className='row justify-content-center'>
-                            <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
+                        <input className='input' onKeyPress={handleKeyPress} type='text' placeholder='Introduce una localidad...'></input>
                             <div>{geoCode[0]?.lat}</div>
                             <div>{geoCode[0]?.lon}</div>
                         </div>
@@ -43,7 +52,7 @@ function Main() {
                         <div className='row justify-content-center'>
                             <p className='site-map'>MAPA DEL SITIO</p>
                             <div className='container-map' >
-                                <Mapa></Mapa>
+                            <Mapa geoCode={geoCode}></Mapa>
                             </div>
                         </div>
                         <div className='row justify-content-center'>

@@ -9,7 +9,7 @@ function Weekday (props){
     desc_tiempo = ['Drizzle','Rain'].includes(props.desc_tiempo.main) ? 'lluvia' : desc_tiempo;
     desc_tiempo = props.desc_tiempo.main === 'Snow' ? 'nieve' : desc_tiempo;
     desc_tiempo = props.desc_tiempo.main === 'Atmosphere' ? 'niebla' : desc_tiempo;
-    console.log(desc_tiempo);
+    // console.log(desc_tiempo);
 
     var indice = props.indice+1;
     //var desc_tiempo = `${props.desc_tiempo.main}`;

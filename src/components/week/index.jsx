@@ -17,9 +17,8 @@ function Week (coords){
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location[0]}&lon=${location[1]}&appid=${OPENWEATHER_KEY}`)
             .then(res => res.json())
             .then((data => {
-                //List es objeto de días dentro de data (respuesta), trae unos 20
-                // y queremos 6 a partir de mañana (slice(1,7))
-                let sixdayforecast = data.list.slice(1,7);
+                //setForecast(data.list.slice(1,7));
+                let sixdayforecast = data?.list?.slice(1,7);
                 sixdayforecast.map(d => {
                     setForecast(...forecastResponse, d.weather.main)
                 })
