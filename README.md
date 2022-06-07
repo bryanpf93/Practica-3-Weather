@@ -1,28 +1,19 @@
-<!---
-Cambiar al definitivo
-container scrolleable hacia abajo?
--->
+<div align="center"><img src="https://i.imgur.com/G3RtyL0.png" alt="screenshot"/></div> 
 
-
-<div align="center"><img src="https://i.imgur.com/G3RtyL0.png" alt="my weather web app on laptop mockup"/></div> 
 
 # 🌊 WAVES    
 
 Waves permite conocer si las condiciones son ideales para surfear 🏄, así como los datos meteorológicos actuales de su posición y el pronóstico semanal.  
 
-<!---
-Para cuando la web este live
-Puedes probarla aquí [clickando aquí](https://XXX/) 
--->
+Puedes probarla aquí [clickando aquí](https://bryanpf93.github.io/practica-3-weather/) 
 
+Creada por cuatro estudiantes de UX/UI y tres de Web Development en [NEOLAND](https://www.neoland.es) a fin de practicar nuevos conocimientos y afianzar los ya adquiridos.
 
-Creada por cuatro estudiantes de UX/UI y tres de Web Development de [NEOLAND](https://www.neoland.es) a fin de practicar nuevos conocimientos y afianzar los ya adquiridos.
 
 
 ## 🚀  Technologías
 
 Este proyecto fue desarrollado utilizando las siguientes tecnologías:
-
 
 - [Figma ](https://www.figma.com/)
 
