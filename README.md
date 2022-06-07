@@ -3,11 +3,11 @@
 
 # 🌊 WAVES    
 
-Waves permite conocer si las condiciones son ideales para surfear 🏄, así como los datos meteorológicos actuales de su posición y el pronóstico semanal.  
+Waves permite conocer si las condiciones son ideales para surfear 🏄, así como los datos meteorológicos actuales de tu posición y el pronóstico semanal.  
 
-Puedes probarla aquí [clickando aquí](https://bryanpf93.github.io/practica-3-weather/) 
+Puedes probarla [clickando aquí](https://bryanpf93.github.io/practica-3-weather/) 
 
-Creada por cuatro estudiantes de UX/UI y tres de Web Development en [NEOLAND](https://www.neoland.es) a fin de practicar nuevos conocimientos y afianzar los ya adquiridos.
+Creada por cuatro estudiantes de UX/UI y tres de Web Development cursando el bootcamp de [NEOLAND](https://www.neoland.es), a fin de practicar nuevos conocimientos y afianzar los ya adquiridos.
 
 
 
