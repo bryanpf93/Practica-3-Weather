@@ -16,6 +16,7 @@ import sunCloud from '../../assets/tiempo/nubesol.svg'
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
+    const gps  = [geoCode[0]?.lat,geoCode[0]?.lon];
 
     useEffect(() => {
         if (geoCode[0]) {
