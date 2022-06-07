@@ -36,28 +36,34 @@ function Cards({ geoCode }) {
 
     return (
 
-        <>
+        <>      <div className='maincomp'>
+                    <div className='col tempydatos'>
+                            <p className='title'>CIUDAD</p>
+                            {//<p className='title'>{geoCode[0]?.name}</p>
+                            }
+                            <p className='today'>{today}</p>
+                            <div className='weather-temperature'>
+                                <img style={{ width: 400 }} src={''} alt="" />
+                                <div className='celcius-farenheit'>30º</div>
+                                {/*
+                                    <div className='celcius-farenheit'>
+                                        {celcius && <p>{celcius}ºC</p>}
+                                        {farenheit && <p>{farenheit}ºF</p>}
+                                    </div>
+                                */}
+                            </div>
+                    </div>  
 
-            <div className='containers-cities'>
-                <div style={{ width: 558, height: 500 }}>
-                    <p className='title'>{geoCode[0]?.name}</p>
-                    <p className='today'>{today}</p>
-                    <div className='weather-temperature'>
-                        <img style={{ width: 400 }} src={''} alt="" />
-                        <div className='celcius-farenheit'>
-                            {celcius && <p>{celcius}ºC</p>}
-                            {farenheit && <p>{farenheit}ºF</p>}
-                        </div>
+                    <div className='col'>
+                        <img style={{ width: 476 }} className='logo' src={logo} alt="" />
                     </div>
                 </div>
-                <div style={{ width: 558, height: 500 }} >
-                    <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                <div className='row justify-content-center'>
+                    <Forecast cities={cities}></Forecast>
                 </div>
-            </div>
-            <div>
-                <Forecast cities={cities}></Forecast>
-                {/* <Week cities={cities}></Week> */}
-            </div>
+                <div className='row justify-content-center'>
+                    <Week cities={cities}></Week>
+                </div>
         </>
     )
 }

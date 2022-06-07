@@ -3,6 +3,7 @@ import Cards from '../cards';
 import Mapa from '../map';
 import Pictures from '../pictures';
 // import 'leaflet/dist/leaflet.css';
+import '../../assets/bootstrap.css';
 
 import './styles.css'
 
@@ -25,20 +26,36 @@ function Main() {
     }, [text])
 
     return (
-        <>
-            <div>
-                <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
-                <div>{geoCode[0]?.lat}</div>
-                <div>{geoCode[0]?.lon}</div>
-
-                <Cards geoCode={geoCode} ></Cards>
+        <>  
+            <body>
+            <div className='mainContainer'>
+            <div className='container'>
+                <div className='container-pic'>
+                    <div className='searchbar'>
+                        <div className='row justify-content-center'>
+                            <input className='input' onChange={handleText} type='text' placeholder='Introduce una localidad...'></input>
+                            <div>{geoCode[0]?.lat}</div>
+                            <div>{geoCode[0]?.lon}</div>
+                        </div>
+                    </div>
+                    <div className='content justify-content-center'>
+                        <Cards geoCode={geoCode} ></Cards>
+                        <div className='row justify-content-center'>
+                            <p className='site-map'>MAPA DEL SITIO</p>
+                            <div className='container-map' >
+                                <Mapa></Mapa>
+                            </div>
+                        </div>
+                        <div className='row justify-content-center'>
+                            <p className='pictures-site'>FOTOS DEL SITIO</p>
+                            <Pictures></Pictures>
+                        </div>
+                        <div className="fondo"></div>
+                    </div>
+                </div>
             </div>
-            <p className='site-map'>MAPA DEL SITIO</p>
-            <div className='container-map' >
-                <Mapa></Mapa>
             </div>
-            <p className='pictures-site'>FOTOS DEL SITIO</p>
-            <Pictures></Pictures>
+            </body>
 
 
 

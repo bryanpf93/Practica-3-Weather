@@ -1,6 +1,6 @@
-import './styles.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import './styles.css'
 import playa1 from "../../assets/playas/playa1.png";
 import playa2 from "../../assets/playas/playa2.png";
 import playa3 from "../../assets/playas/playa3.png";
@@ -27,15 +27,33 @@ function Pictures() {
 
     return (
         <>
-            <Carousel responsive={responsive}>
-                <div><img src={playa1} alt=""></img></div>
-                <div><img src={playa2} alt=""></img></div>
-                <div><img src={playa3} alt=""></img></div>
-                <div><img src={playa4} alt=""></img></div>
-                <div><img src={playa5} alt=""></img></div>
-                <div><img src={playa6} alt=""></img></div>
-                <div><img src={playa7} alt=""></img></div>
-            </Carousel>
+            <div className='caroucontainer'>
+                <Carousel
+                    swipeable={false}
+                    draggable={false}
+                    showDots={true}
+                    responsive={responsive}
+                    ssr={true} // means to render carousel on server-side.
+                    infinite={true}
+                    //autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                    autoPlaySpeed={3200}
+                    keyBoardControl={true}
+                    transitionDuration={1000}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    //deviceType={this.props.deviceType}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-10-px"
+                    >
+                    <div><img src={playa1} alt=""></img></div>
+                    <div><img src={playa2} alt=""></img></div>
+                    <div><img src={playa3} alt=""></img></div>
+                    <div><img src={playa4} alt=""></img></div>
+                    <div><img src={playa5} alt=""></img></div>
+                    <div><img src={playa6} alt=""></img></div>
+                    <div><img src={playa7} alt=""></img></div>
+                </Carousel>
+            </div>
         </>
     )
 }
