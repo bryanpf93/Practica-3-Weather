@@ -1,26 +1,31 @@
+import { useEffect, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import './styles.css'
 // import 'leaflet/dist/leaflet.css';
 
 
-function Mapa({geoCode}) {
+function Mapa({ geoCode }) {
 
-    console.log(geoCode);
+    const [location, setLocation] = useState([43.0468746, -2.2771408]);
 
-    const location = [43.0468746,-2.2771408];
+    useEffect(() => {
+        if (geoCode && geoCode.length > 0) {
+            setLocation([geoCode[0].lat, geoCode[0].lon])
+        }
+    }, [geoCode])
 
-    return( 
-                  <MapContainer className='map' center={location} zoom={13} scrollWheelZoom={false}>
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <Marker position={[41.3828939,2.1774322]}>
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker>
-                </MapContainer>
+    return (
+        <MapContainer key={JSON.stringify(location)} className='map' center={location} zoom={13} scrollWheelZoom={false}>
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={location}>
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+            </Marker>
+        </MapContainer>
 
     )
 }
