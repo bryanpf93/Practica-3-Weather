@@ -16,13 +16,19 @@ import sunCloud from '../../assets/tiempo/nubesol.svg'
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
-    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+    const REACT_API_KEY = process.env.REACT_APP_API_KEY;
+    console.log('Geocode: ', geoCode[0]);
+
+    console.log(REACT_API_KEY)
 
     useEffect(() => {
         if (geoCode[0]) {
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_APP_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_API_KEY}`)
                 .then(res => res.json())
-                .then(data => setCities(data))
+                .then(data => {
+                    setCities(data);
+                    console.log('DATA 1: ', data);
+                })
         }
     }, [geoCode])
 
@@ -33,6 +39,8 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
+
+    //console.log('Cities? :', cities?.current);
        
 
     // switch (iconWeather) {
@@ -86,31 +94,35 @@ function Cards({ geoCode }) {
 
     return (
 
-        <>
+        <>      <div className='maincomp'>
+                    <div className='col tempydatos'>
+                        <div style={{ width: 558, height: 500 }}>
+                            <p className='title'>{geoCode[0]?.name}</p>
+                            <p className='today'>{today}</p>
+                            <div className='weather-temperature'>
 
-            <div className='containers-cities'>
-                <div style={{ width: 558, height: 500 }}>
-                    <p className='title'>{geoCode[0]?.name}</p>
-                    <p className='today'>{today}</p>
-                    <div className='weather-temperature'>
+                                <img style={{ width: 400 }} src={iconWeather} alt="" />
+                                {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
 
-                        <img style={{ width: 400 }} src={iconWeather} alt="" />
-                        {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
-
-                        <div className='celcius-farenheit'>
-                            {celcius && <p>{celcius}ºC</p>}
-                            {farenheit && <p>{farenheit}ºF</p>}
+                                <div className='celcius-farenheit'>
+                                    {celcius && <p>{celcius}ºC</p>}
+                                    {farenheit && <p>{farenheit}ºF</p>}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div className='col'>
+                        <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                    </div>
                 </div>
-                <div style={{ width: 558, height: 500 }} >
-                    <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                <div>
+                    <div className='row justify-content-center'>
+                        <Forecast cities={cities} geoCode={geoCode}></Forecast>
+                    </div>
+                    <div className='row justify-content-center'>
+                        <Week cities={cities}></Week>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <Forecast cities={cities} geoCode={geoCode}></Forecast>
-                <Week cities={cities}></Week>
-            </div>
         </>
     )
 }
