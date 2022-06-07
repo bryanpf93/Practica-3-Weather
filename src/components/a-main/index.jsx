@@ -66,7 +66,7 @@ function Main() {
                             ? <p>Cargando...</p>
                             : (
                                 <div className='content justify-content-center'>
-                                    <Cards geoCode={geoCode} ></Cards>
+                                    <Cards geoCode={geoCode}></Cards>
                                     <div className='row justify-content-center'>
                                         <p className='site-map'>MAPA DEL SITIO</p>
                                         <div className='container-map' >

@@ -12,22 +12,22 @@ function Week (coords){
 
     //no funciona todavía (ya funciona jeje)
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location[0]}&lon=${location[1]}&appid=${OPENWEATHER_KEY}`)
-            .then(res => res.json())
-            .then((data => {
-                //setForecast(data.list.slice(1,7));
-                let sixdayforecast = data?.list?.slice(1,7);
-                sixdayforecast.map(d => {
-                    // setForecast(...forecastResponse, d.weather.main)
-                })
-                //console.log(forecastResponse);
-                //return testforecast;
-        }))
+    //     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location[0]}&lon=${location[1]}&appid=${OPENWEATHER_KEY}`)
+    //         .then(res => res.json())
+    //         .then((data => {
+    //             //setForecast(data.list.slice(1,7));
+    //             let sixdayforecast = data?.list?.slice(1,7);
+    //             sixdayforecast.map(d => {
+    //                 // setForecast(...forecastResponse, d.weather.main)
+    //             })
+    //             //console.log(forecastResponse);
+    //             //return testforecast;
+    //     }))
         
 
-    }, [])
+    // }, [])
     
     /*
     getForecast().then((testforecast) => {

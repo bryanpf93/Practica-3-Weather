@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css'
-import logo from "../../assets/olassi.svg"
+import logo1 from "../../assets/olassi.svg"
+import logo2 from "../../assets/olasno.svg"
 import Forecast from '../forecast';
 import Week from '../week';
 import sun from '../../assets/tiempo/sol.svg'
@@ -12,6 +13,8 @@ import twoCloud from '../../assets/tiempo/dosnubes.svg'
 import storm from '../../assets/tiempo/tormenta.svg'
 import sunCloud from '../../assets/tiempo/nubesol.svg'
 import { Form } from 'react-bootstrap';
+
+
 
 const parseTemperature = (kelvin, type) => type === 'C'
     ? Math.round(kelvin - 273.15)
@@ -104,6 +107,15 @@ function Cards({ geoCode }) {
         }))
     }
 
+    const SurfIcon = () => {
+        if (geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Barbate" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander") {
+            return <img src={logo1} alt=""></img>
+        } else {
+            return <img src={logo2} alt=""></img>
+        };
+    }
+
+
     return (
 
         <>
@@ -114,11 +126,11 @@ function Cards({ geoCode }) {
                         <p className='today'>{today}</p>
                         <div className='weather-temperature'>
 
-                            <img style={{ width: 200 }} src={getImageWeather()} alt="" />
+                        <img style={{ width: 200 }} src={getImageWeather()} alt="" />
                             {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
 
                             <div className='celsius-farenheit'>
-                                <p>{parseTemperature(temperature.value, temperature.type)}º{temperature.type}</p>
+                                <p className='grades' >{parseTemperature(temperature.value, temperature.type)}º</p>
                                 <div className='d-flex text-light'>
                                     <span className='me-2'>ºC</span>
                                     <Form.Check
@@ -134,12 +146,14 @@ function Cards({ geoCode }) {
                     </div>
                 </div>
                 <div className='col'>
-                    <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                   {SurfIcon()}
                 </div>
             </div>
             <div>
                 <div className='row justify-content-center'>
-                    <Forecast cities={cities} geoCode={geoCode}></Forecast>
+                 { geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Barbate" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander" 
+                    ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
+                    :""}
                 </div>
                 <div className='row justify-content-center'>
                     <Week cities={cities}></Week>
