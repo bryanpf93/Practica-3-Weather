@@ -33,17 +33,13 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
-<<<<<<< HEAD
-    // console.log(iconWeather);
-=======
-<<<<<<< HEAD
        
 
-    switch (iconWeather) {
-        case 10n:
-=======
-    console.log(iconWeather);
->>>>>>> 6bc8ae696621d68556339d197093d5a9367b8aa7
+    // switch (iconWeather) {
+    //     case 10n:
+
+    // console.log(iconWeather);
+
     
     // switch (iconWeather) {
     //     case "01d":  
@@ -82,7 +78,6 @@ function Cards({ geoCode }) {
     //     return <img src={mist} alt=""></img>    
     //     case "50n":
     //     return <img src={mist} alt=""></img>
->>>>>>> 1eba2439c944602c70607d654c0c3d86bd20d960
             
     //     default:
     //         <img src={sun} alt=""></img>
@@ -98,11 +93,10 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
-<<<<<<< HEAD
+
                         <img style={{ width: 400 }} src={iconWeather} alt="" />
-=======
                         {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
->>>>>>> 1eba2439c944602c70607d654c0c3d86bd20d960
+
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}

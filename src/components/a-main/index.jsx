@@ -21,11 +21,20 @@ function Main() {
         }
     }, [text])
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            setText(e.target.value.toLowerCase())
+        }
+
+    }
+
+
+
     return (
         <>
             <p className='waves'>WAVES</p>
             <div>
-                <input className='input' type='text' placeholder='Introduce una localidad...'></input>
+                <input className='input' onKeyPress={handleKeyPress} type='text' placeholder='Introduce una localidad...'></input>
                 <div>{geoCode[0]?.lat}</div>
                 <div>{geoCode[0]?.lon}</div>
 
