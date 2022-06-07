@@ -2,7 +2,16 @@ import { useEffect, useState } from 'react';
 import './styles.css'
 import logo from "../../assets/olassi.svg"
 import Forecast from '../forecast';
-import Week from '../week';
+// import Week from '../week';
+import sun from '../../assets/tiempo/sol.svg'
+import rain from '../../assets/tiempo/lluvia.svg'
+import mist from '../../assets/tiempo/niebla.svg'
+import snow from '../../assets/tiempo/nieve.svg'
+import oneCloud from '../../assets/tiempo/nube.svg'
+import twoCloud from '../../assets/tiempo/dosnubes.svg'
+import storm from '../../assets/tiempo/tormenta.svg'
+import sunCloud from '../../assets/tiempo/nubesol.svg'
+
 
 function Cards({ geoCode }) {
 
@@ -23,15 +32,50 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
+    console.log(iconWeather);
     
-    switch (iconWeather) {
-        case 10n:
+    // switch (iconWeather) {
+    //     case "01d":  
+    //     return <img src={sun} alt=""></img>
+    //     case "01n":
+    //     return <img src={sun} alt=""></img>
+    //     case "02d":
+    //     return <img src={sunCloud} alt=""></img>
+    //     case "02n":
+    //     return <img src={sunCloud} alt=""></img>
+    //     case "03d":
+    //     return <img src={oneCloud} alt=""></img>
+    //     case "03n":
+    //     return <img src={oneCloud} alt=""></img>
+    //     case "04d":
+    //     return <img src={twoCloud} alt=""></img>
+    //     case "04n":
+    //     return <img src={twoCloud} alt=""></img>
+    //     case "09d":
+    //     return <img src={rain} alt=""></img>
+    //     case "09n": 
+    //     return <img src={rain} alt=""></img>
+    //     case "10d":
+    //     return <img src={rain} alt=""></img>
+    //     case "10n":
+    //     return <img src={rain} alt=""></img>
+    //     case "11d":
+    //     return <img src={storm} alt=""></img>
+    //     case "11n":
+    //     return <img src={storm} alt=""></img>
+    //     case "13d":
+    //     return <img src={snow} alt=""></img>
+    //     case "13n":
+    //     return <img src={snow} alt=""></img>
+    //     case "50d":
+    //     return <img src={mist} alt=""></img>    
+    //     case "50n":
+    //     return <img src={mist} alt=""></img>
             
-            break;
-    
-        default:
-            break;
-    }
+    //     default:
+    //         <img src={sun} alt=""></img>
+       
+    // }
 
     return (
 
@@ -42,7 +86,7 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
-                        <img style={{ width: 400 }} src={a} alt="" />
+                        {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}
