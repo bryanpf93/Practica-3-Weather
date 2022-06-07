@@ -16,11 +16,15 @@ import sunCloud from '../../assets/tiempo/nubesol.svg'
 function Cards({ geoCode }) {
 
     const [cities, setCities] = useState({})
+<<<<<<< HEAD
+    const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
+=======
     const gps  = [geoCode[0]?.lat,geoCode[0]?.lon];
+>>>>>>> 1eba2439c944602c70607d654c0c3d86bd20d960
 
     useEffect(() => {
         if (geoCode[0]) {
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=382ffd2ff5479a9032545c1069dcec64`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_APP_API_KEY}`)
                 .then(res => res.json())
                 .then(data => setCities(data))
         }
@@ -33,6 +37,12 @@ function Cards({ geoCode }) {
     const farenheit = Math.round(celcius * 9 / 5 + 32);
 
     const iconWeather = cities?.current?.weather[0]?.icon;
+<<<<<<< HEAD
+       
+
+    switch (iconWeather) {
+        case 10n:
+=======
     console.log(iconWeather);
     
     // switch (iconWeather) {
@@ -72,6 +82,7 @@ function Cards({ geoCode }) {
     //     return <img src={mist} alt=""></img>    
     //     case "50n":
     //     return <img src={mist} alt=""></img>
+>>>>>>> 1eba2439c944602c70607d654c0c3d86bd20d960
             
     //     default:
     //         <img src={sun} alt=""></img>
@@ -87,7 +98,11 @@ function Cards({ geoCode }) {
                     <p className='title'>{geoCode[0]?.name}</p>
                     <p className='today'>{today}</p>
                     <div className='weather-temperature'>
+<<<<<<< HEAD
+                        <img style={{ width: 400 }} src={iconWeather} alt="" />
+=======
                         {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
+>>>>>>> 1eba2439c944602c70607d654c0c3d86bd20d960
                         <div className='celcius-farenheit'>
                             {celcius && <p>{celcius}ºC</p>}
                             {farenheit && <p>{farenheit}ºF</p>}

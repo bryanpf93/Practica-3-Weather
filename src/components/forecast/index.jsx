@@ -46,6 +46,7 @@ function Forecast({ cities }) {
     const hoursTwo = dateTwo.getHours();
     const minutesTwo = dateTwo.getMinutes();
     const timeTwo = `${padTo2Digits(hoursTwo)}:${padTo2Digits(minutesTwo)}`;
+    const randomEnergy = Math.floor(Math.random() * (100 - 1) + 1);
 
     const today = new Date();
     const unixstart = parseInt((today.getTime() / 1000).toFixed(0));
@@ -133,7 +134,7 @@ function Forecast({ cities }) {
                 <p>ENERGÍA OLA</p>
                 <img src={energy} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>86.1</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{randomEnergy}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>kJ</p>
                 </div>
             </div>
