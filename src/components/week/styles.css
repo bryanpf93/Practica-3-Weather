@@ -2,17 +2,24 @@
 
 .weekContainer{
     margin-top:60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .weekly {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    gap: 16px;
+    gap: 28px;
     margin-top: 20px;
     width: 1117px;
     height: 308px;
+}
 
+.weeklytitle {
+    margin-left:180px;
 }
 
 h3 {

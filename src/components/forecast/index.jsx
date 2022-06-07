@@ -20,6 +20,7 @@ function Forecast({ cities, geoCode }) {
         return num.toString().padStart(2, '0');
     }
 
+    // función convertir grados a puntos cardinales
     function degreesToCoordinates(degrees) {
         // Define array of directions
         const directions = ['Norte', 'Nordeste', 'Este', 'Sureste', 'Sur', 'Sudoeste', 'Oeste', 'Noroeste'];
@@ -46,56 +47,65 @@ function Forecast({ cities, geoCode }) {
     const hoursTwo = dateTwo.getHours();
     const minutesTwo = dateTwo.getMinutes();
     const timeTwo = `${padTo2Digits(hoursTwo)}:${padTo2Digits(minutesTwo)}`;
-    const randomEnergy = Math.floor(Math.random() * (100 - 1) + 1);
+    
 
     const today = new Date();
+    // fecha unix porque la pide la api de stormglass
     const unixstart = parseInt((today.getTime() / 1000).toFixed(0));
+    // params a pasar a la api (cosas que usaremos)
     const params = 'waveHeight,waveDirection,windSpeed,windDirection,humidity,wavePeriod';
     const STORMGLASS_KEY = `${process.env.REACT_APP_STORMGLASS_KEY}`;
-
+    // state para los resulados (params devueltos)
     const [sgResponse, setSGResponse] = useState('');
 
-    const location = [43.0468746,-2.2771408];
+    // const location = [43.0468746,-2.2771408];
+    // const locatMadrid = [14.7110139,-17.5358652];
+
+    const randomEnergy = Math.floor(Math.random() * (100 - 1) + 1);
+
 
     useEffect(() => {
 
-        fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
-            headers: {
-            'Authorization': STORMGLASS_KEY
-            }
-        }).then((response) => response.json()).then((jsonData) => {
-            // solo la primera hora (actual)
-            // console.log(jsonData.hours[0]);
-            setSGResponse(jsonData.hours[0]);
-        });
+        // todo esto deberá ir en a-main junto con el fetch principal
+        // el mismo callback de cambio (text)
 
-    },[])
+        if (geoCode && geoCode.length >= 2) {
+
+            fetch(`https://api.stormglass.io/v2/weather/point?lat=${geoCode[0]}&lng=${geoCode[1]}&start=${unixstart}&params=${params}`, {
+                headers: {
+                'Authorization': STORMGLASS_KEY
+                }
+            }).then((response) => response.json()).then((jsonData) => {
+                // solo la primera hora (actual)
+                setSGResponse(jsonData.hours[0]);
+            });
+        }
+
+    },[geoCode])
 
 
     return (
-
+        
         <div className='main'>
             <div className='container_single'>
                 <p>ALTURA OLA</p>
                 <img src={height} alt="" />
-                <p style={{ fontSize: 70 }}>{sgResponse?.waveHeight?.sg}</p>
-                <p>m</p>
+                <p style={{ fontSize: 70 }}>{sgResponse?.waveHeight?.sg}<span style={{ fontSize: 30 }}> m</span></p>
             </div>
             <div className='container_single'>
                 <p>DIRECCIÓN OLA</p>
                 <img src={direction} alt="" />
-                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.waveDirection?.sg)}º</p>
+                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.waveDirection?.sg)}</p>
             </div>
             <div className='container_single'>
                 <p>VIENTO</p>
                 <img src={wind} alt="" />
-                <p style={{ fontSize: 60 }}>{sgResponse?.windSpeed?.sg}</p>
-                <p>m/s</p>
+                <p style={{ fontSize: 60 }}>{sgResponse?.windSpeed?.sg}<span style={{ fontSize: 20 }}>m/s</span></p>
             </div>
             <div className='container_single'>
                 <p>DIRECCION</p>
                 <img src={windDir} alt="" />
-                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.windDirection?.sg)}º</p>
+                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.windDirection?.sg)}</p>
             </div>
             <div className='container_single'>
                 <p>PROBABILIDAD</p>
@@ -141,8 +151,7 @@ function Forecast({ cities, geoCode }) {
                 <p>HUMEDAD</p>
                 <img src={humidity} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 60, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.humidity?.sg}</p>
-                    <p>%</p>
+                    <p style={{ fontSize: 60, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.humidity?.sg}<span style={{ fontSize: 40 }}>%</span></p>
                 </div>
             </div>
             <div className='container_double'>
@@ -161,8 +170,7 @@ function Forecast({ cities, geoCode }) {
                 <p>PERIODO OLA</p>
                 <img src={period} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.wavePeriod?.sg}</p>
-                    <p style={{ fontSize: 40, marginBottom: 30 }}>seg</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.wavePeriod?.sg}<span style={{ fontSize: 20 }}>seg</span></p>
                 </div>
             </div>
         </div>

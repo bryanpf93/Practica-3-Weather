@@ -28,6 +28,7 @@ function Mapa({ geoCode }) {
         </MapContainer>
 
     )
+
 }
 
 export default Mapa;
