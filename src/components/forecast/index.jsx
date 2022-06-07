@@ -59,8 +59,7 @@ function Forecast({ cities, geoCode }) {
 
     useEffect(() => {
 
-
-        fetch(`https://api.stormglass.io/v2/weather/point?lat={${location[0]}}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
+        fetch(`https://api.stormglass.io/v2/weather/point?lat=${location[0]}&lng=${location[1]}&start=${unixstart}&params=${params}`, {
             headers: {
             'Authorization': STORMGLASS_KEY
             }
@@ -70,7 +69,7 @@ function Forecast({ cities, geoCode }) {
             setSGResponse(jsonData.hours[0]);
         });
 
-    },[sgResponse])
+    },[])
 
 
     return (
