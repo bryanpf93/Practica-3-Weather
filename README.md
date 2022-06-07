@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+<!---
+Cambiar al definitivo
+container scrolleable hacia abajo?
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<div align="center"><img src="https://i.imgur.com/G3RtyL0.png" alt="my weather web app on laptop mockup"/></div> 
 
-In the project directory, you can run:
+# 🌊 WAVES    
 
-### `npm start`
+Waves permite conocer si las condiciones son ideales para surfear 🏄, así como los datos meteorológicos actuales de su posición y el pronóstico semanal.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!---
+Para cuando la web este live
+Puedes probarla aquí [clickando aquí](https://XXX/) 
+-->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Creada por cuatro estudiantes de UX/UI y tres de Web Development de [NEOLAND](https://www.neoland.es) a fin de practicar nuevos conocimientos y afianzar los ya adquiridos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🚀  Technologías
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Figma ](https://www.figma.com/)
 
-### `npm run eject`
+-  CSS, HTML, Bootstrap
+ 
+- [React – A JavaScript library for building user interfaces (reactjs.org)](https://reactjs.org/)
+- [React Leaflet - React components for Leaflet maps](https://react-leaflet.js.org/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ✨ USO
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Clona el repositorio.
+* Cambia al directorio del repositorio clonado.
+* Instala dependencias con `npm install`
+* Crea un archivo `.env' y agrea las API KEYS de Openweathermap y Stormglass   
+ 
+        REACT_APP_API_KEY=<openweather-api-key>
+        REACT_APP_STORMGLASS_KEY=<stormglass-api-key>
+    
+* Inicia el servidor de desarrollo con `npm start`.
+* Dirígete a [http://localhost:3000](http://localhost:3000) para ver el proyecto en tu navegador.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 Descripción APIs
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Esta aplicación utiliza dos APIs, una para las condiciones meteorológicas específicas para la práctica del surf y otra para las genéricas.
 
-### Analyzing the Bundle Size
+- [Openweathermap  ](https://openweathermap.org/) (1000 llamadas al día gratuitas.)
+- [Stormglass  ](https://stormglass.io/) (10 llamadas al día gratuitas).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
