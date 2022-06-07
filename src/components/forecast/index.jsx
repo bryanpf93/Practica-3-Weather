@@ -58,8 +58,8 @@ function Forecast({ cities, geoCode }) {
     // state para los resulados (params devueltos)
     const [sgResponse, setSGResponse] = useState('');
 
-    const location = [43.0468746,-2.2771408];
-    const locatMadrid = [14.7110139,-17.5358652];
+    // const location = [43.0468746,-2.2771408];
+    // const locatMadrid = [14.7110139,-17.5358652];
 
     const randomEnergy = Math.floor(Math.random() * (100 - 1) + 1);
 
@@ -69,7 +69,7 @@ function Forecast({ cities, geoCode }) {
         // todo esto deberá ir en a-main junto con el fetch principal
         // el mismo callback de cambio (text)
 
-        if (geoCode[0]) {
+        if (geoCode && geoCode.length >= 2) {
 
             fetch(`https://api.stormglass.io/v2/weather/point?lat=${geoCode[0]}&lng=${geoCode[1]}&start=${unixstart}&params=${params}`, {
                 headers: {
@@ -77,7 +77,6 @@ function Forecast({ cities, geoCode }) {
                 }
             }).then((response) => response.json()).then((jsonData) => {
                 // solo la primera hora (actual)
-                console.log(jsonData.hours[0]);
                 setSGResponse(jsonData.hours[0]);
             });
         }
