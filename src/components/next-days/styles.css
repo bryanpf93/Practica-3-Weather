@@ -14,9 +14,14 @@
 .days-container{
     display: flex;
     gap: 20px;
-    
-
 }
+
+.days:hover{
+    transform: scale(1.3);
+    border: 1px solid orange;
+}
+
+
 
 p {
     color: white;
