@@ -156,7 +156,12 @@ function Cards({ geoCode }) {
                     ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
                     :""}
                 </div>
+
+                <div className='next-days'>
+                <p>PROXIMOS DIAS</p>
                 <NextDays cities={cities} ></NextDays>
+                </div>
+                
                 {/* <div className='row justify-content-center'>
                     <Week cities={cities}></Week>
                 </div> */}

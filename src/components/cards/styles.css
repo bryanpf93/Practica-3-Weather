@@ -69,3 +69,11 @@
     color: #FFFFFF;
     
 }
+
+.next-days{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}

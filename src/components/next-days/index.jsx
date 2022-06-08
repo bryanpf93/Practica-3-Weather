@@ -10,36 +10,36 @@ import twoCloud from '../../assets/images/icon_partnube.svg'
 
 
 
-function NextDays({cities}) {
+function NextDays({ cities }) {
 
     const Images = [
         {
-            "name" : "sun",
-            "image" : sun
+            "name": "sun",
+            "image": sun
         },
         {
-            "name" : "sunCloud",
-            "image" : oneCloud
+            "name": "sunCloud",
+            "image": oneCloud
         },
         {
-            "name" : "oneCloud",
-            "image" : oneCloud
+            "name": "oneCloud",
+            "image": oneCloud
         },
         {
-            "name" : "sunCloud",
-            "image" : sun
+            "name": "sunCloud",
+            "image": sun
         },
         {
-            "name" : "sun",
-            "image" : sun
+            "name": "sun",
+            "image": sun
         },
         {
-            "name" : "oneCloud",
-            "image" : oneCloud
+            "name": "oneCloud",
+            "image": oneCloud
         },
         {
-            "name" : "sun",
-            "image" : sun
+            "name": "sun",
+            "image": sun
         },
 
     ]
@@ -51,44 +51,47 @@ function NextDays({cities}) {
     }
 
 
-   
+
 
     return (
-        <>      
+        <>  
             <div className="days-container">
                 <div className='days'>
                     <p>JUEVES </p>
-                    <img style={{ width: 200 }} src={getImage().image} alt="" />
-
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
                 <div className='days'>
-
-                <img style={{ width: 200 }} src={getImage().image} alt="" />
+                <p>VIERNES </p>
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
                 <div className='days'>
-                <img style={{ width: 200 }} src={getImage().image} alt="" />
+                <p>SABADO </p>
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
                 <div className='days'>
-                <img style={{ width: 200 }} src={getImage().image} alt="" />
+                <p>DOMINGO </p>
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
                 <div className='days'>
-                <img style={{ width: 200 }} src={getImage().image} alt="" />
+                <p>LUNES </p>
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
                 <div className='days'>
-                <img style={{ width: 200 }} src={getImage().image} alt="" />
+                <p>MARTES </p>
+                    <img className='image-days' src={getImage().image} alt="" />
                 </div>
             </div>
-               
-            
-               
-            
+
+
+
+
         </>
     )
-     
-       
-        
-            
-    
+
+
+
+
+
 }
 
 export default NextDays;

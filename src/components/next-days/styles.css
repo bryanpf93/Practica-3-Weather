@@ -1,9 +1,14 @@
-.day{
+.days {
+    border: 1px solid black;
     width: 169px;
     height: 252px;
-    border: 1px solid black;
-    border-radius: 15px;
     background: linear-gradient(to bottom,#2B334A,#0E1122);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .days-container{
@@ -17,3 +22,6 @@ p {
     color: white;
 }
 
+.image-days {
+    width: 100px;
+}
