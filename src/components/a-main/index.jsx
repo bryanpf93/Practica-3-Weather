@@ -27,6 +27,8 @@ function Main() {
             })
         }
     }, [])
+    
+    
 
     
 
@@ -46,7 +48,7 @@ function Main() {
 
     }
 
-    console.log('geoCode', geoCode);
+    // console.log('geoCode', geoCode);
 
     return (
         <>
@@ -67,7 +69,7 @@ function Main() {
                             ? <p>Cargando...</p>
                             : (
                                 <div className='content justify-content-center'>
-                                    <Cards geoCode={geoCode}></Cards>
+                                    <Cards geoCode={geoCode} text={text}></Cards>
                                     <div className='row justify-content-center'>
                                         <p className='site-map'>MAPA DEL SITIO</p>
                                         <div className='container-map' >

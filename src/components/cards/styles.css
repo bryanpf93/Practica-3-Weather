@@ -10,7 +10,7 @@
 .tempydatos{
     width: 494.67px;
     height: 315px;
-    margin: 40px 40px 20px 30px;
+    margin: 0px 40px 100px 30px;
 }
 
 .containers-cities{
@@ -52,6 +52,7 @@
 .grades{
 
     font-size: 140px;
+    margin-left: 35px;
 
 }
 
@@ -76,6 +77,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
     
+
+}
+
+.toggle{
+    margin-left: 75px;
+    
+}
+
+.days-title{
+    color: #0B98B1;
+    font-size: 40px;
+    margin: 0px 0 20px 95px;
 
 }

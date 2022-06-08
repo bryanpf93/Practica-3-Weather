@@ -213,7 +213,7 @@ function Forecast({ cities, geoCode }) {
         return tides[random];
     }
 
-    console.log(getTides());
+    // console.log(getTides());
 
     
 

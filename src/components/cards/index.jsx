@@ -21,7 +21,7 @@ const parseTemperature = (kelvin, type) => type === 'C'
     ? Math.round(kelvin - 273.15)
     : Math.round(((kelvin - 273.15) * 1.8) + 32);
 
-function Cards({ geoCode }) {
+function Cards({ geoCode , text }) {
 
     const [cities, setCities] = useState({})
     const [temperature, setTemperature] = useState({})
@@ -126,7 +126,7 @@ function Cards({ geoCode }) {
             <div className='maincomp'>
                 <div className='col tempydatos'>
                     <div style={{ marginLeft: 60, width: 558, height: 500 }}>
-                        <p className='title'>{geoCode[0]?.name}</p>
+                        {text.length===0?<p className='title'>Madrid</p> :<p className='title'>{geoCode[0]?.name}</p>}
                         <p className='today'>{fecha}</p>
                         <div className='weather-temperature'>
 
@@ -134,9 +134,9 @@ function Cards({ geoCode }) {
 
                             <div className='celsius-farenheit'>
                                 <p className='grades' >{parseTemperature(temperature.value, temperature.type)}º</p>
-                                <div className='d-flex text-light'>
+                                <div className='d-flex text-light toggle'>
                                     <span className='me-2'>ºC</span>
-                                    <Form.Check
+                                    <Form.Check 
                                         type="switch"
                                         id="custom-switch"
                                         checked={temperature.type === 'F'}
@@ -158,9 +158,9 @@ function Cards({ geoCode }) {
                     ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
                     :""}
                 </div>
-
+                <p className='days-title'>PROXIMOS DIAS</p>
                 <div className='next-days'>
-                <p>PROXIMOS DIAS</p>
+                
                 <NextDays cities={cities} ></NextDays>
                 </div>
            
