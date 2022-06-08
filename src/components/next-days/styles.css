@@ -1,0 +1,19 @@
+.day{
+    width: 169px;
+    height: 252px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background: linear-gradient(to bottom,#2B334A,#0E1122);
+}
+
+.days-container{
+    display: flex;
+    gap: 20px;
+    
+
+}
+
+p {
+    color: white;
+}
+
