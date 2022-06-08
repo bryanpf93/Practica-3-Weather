@@ -70,6 +70,15 @@
     
 }
 
+<<<<<<< HEAD
 .logoTiempo {
     fill: #E59613;
+=======
+.next-days{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+>>>>>>> a35e8da7d6fe2328a9bb364ef93b1eaa298151ae
 }

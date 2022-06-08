@@ -13,6 +13,7 @@ import twoCloud from '../../assets/tiempo/dosnubes.svg'
 import storm from '../../assets/tiempo/tormenta.svg'
 import sunCloud from '../../assets/tiempo/nubesol.svg'
 import { Form } from 'react-bootstrap';
+import NextDays from '../next-days';
 
 
 
@@ -30,7 +31,7 @@ function Cards({ geoCode }) {
 
     useEffect(() => {
         if (geoCode[0]) {
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly&appid=${REACT_API_KEY}`)
 
 
                 .then(res => res.json())
@@ -157,8 +158,19 @@ function Cards({ geoCode }) {
                     ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
                     :""}
                 </div>
+<<<<<<< HEAD
                 {/* <div className='row justify-content-center'>
                   <Week cities={cities}></Week>
+=======
+
+                <div className='next-days'>
+                <p>PROXIMOS DIAS</p>
+                <NextDays cities={cities} ></NextDays>
+                </div>
+                
+                {/* <div className='row justify-content-center'>
+                    <Week cities={cities}></Week>
+>>>>>>> a35e8da7d6fe2328a9bb364ef93b1eaa298151ae
                 </div> */}
             </div>
         </>
