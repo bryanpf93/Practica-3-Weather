@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/practica-3-weather/static/css/main.d035a93e.css",
-    "main.js": "/practica-3-weather/static/js/main.2e074c24.js",
+    "main.js": "/practica-3-weather/static/js/main.025faf8c.js",
     "static/js/787.53021804.chunk.js": "/practica-3-weather/static/js/787.53021804.chunk.js",
     "static/media/background-hero-1.png": "/practica-3-weather/static/media/background-hero-1.dcc45854bccdf2f1c407.png",
     "static/media/laredo_1.png": "/practica-3-weather/static/media/laredo_1.9bd9ca027683ba04f092.png",
@@ -44,11 +44,11 @@
     "static/media/tormenta.svg": "/practica-3-weather/static/media/tormenta.49fce2b99a488303ebda6f257531de08.svg",
     "static/media/icon_storm.svg": "/practica-3-weather/static/media/icon_storm.3a93e4ef92e0f6d5c3b2.svg",
     "main.d035a93e.css.map": "/practica-3-weather/static/css/main.d035a93e.css.map",
-    "main.2e074c24.js.map": "/practica-3-weather/static/js/main.2e074c24.js.map",
+    "main.025faf8c.js.map": "/practica-3-weather/static/js/main.025faf8c.js.map",
     "787.53021804.chunk.js.map": "/practica-3-weather/static/js/787.53021804.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d035a93e.css",
-    "static/js/main.2e074c24.js"
+    "static/js/main.025faf8c.js"
   ]
 }
