@@ -108,12 +108,15 @@ function Cards({ geoCode }) {
     }
 
     const SurfIcon = () => {
-        if (geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Barbate" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander") {
+        if (geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Dakar" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander") {
             return <img src={logo1} alt=""></img>
         } else {
             return <img src={logo2} alt=""></img>
         };
     }
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    const dateNew  = new Date();
+    const fecha = dateNew.toLocaleDateString("es-ES", options)
 
 
     return (
@@ -121,13 +124,12 @@ function Cards({ geoCode }) {
         <>
             <div className='maincomp'>
                 <div className='col tempydatos'>
-                    <div style={{ width: 558, height: 500 }}>
+                    <div style={{ marginLeft: 60, width: 558, height: 500 }}>
                         <p className='title'>{geoCode[0]?.name}</p>
-                        <p className='today'>{today}</p>
+                        <p className='today'>{fecha}</p>
                         <div className='weather-temperature'>
 
-                        <img style={{ width: 200 }} src={getImageWeather()} alt="" />
-                            {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
+                        <img className="logoTiempo" style={{ width: 200 }} src={getImageWeather()} alt="" />
 
                             <div className='celsius-farenheit'>
                                 <p className='grades' >{parseTemperature(temperature.value, temperature.type)}º</p>
@@ -151,13 +153,13 @@ function Cards({ geoCode }) {
             </div>
             <div>
                 <div className='row justify-content-center'>
-                 { geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Barbate" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander" 
+                 { geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Dakar" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander" 
                     ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
                     :""}
                 </div>
-                <div className='row justify-content-center'>
-                    <Week cities={cities}></Week>
-                </div>
+                {/* <div className='row justify-content-center'>
+                  <Week cities={cities}></Week>
+                </div> */}
             </div>
         </>
     )

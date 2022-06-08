@@ -4,14 +4,14 @@ import Weekday from '../weekday'
 
 function Week (coords){
 
-    const [forecastResponse, setForecast] = useState(false);
-    const OPENWEATHER_KEY = `${process.env.REACT_APP_API_KEY}`;
+    // const [forecastResponse, setForecast] = useState(false);
+    // const OPENWEATHER_KEY = `${process.env.REACT_APP_API_KEY}`;
     // console.log(process.env.REACT_APP_OPENWEATHER_KEY);
 
     const location = [43.0468746,-2.2771408];
 
     //no funciona todavía (ya funciona jeje)
-
+    
     // useEffect(() => {
         
     //     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location[0]}&lon=${location[1]}&appid=${OPENWEATHER_KEY}`)
