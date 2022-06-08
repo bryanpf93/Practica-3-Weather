@@ -119,6 +119,7 @@ function Cards({ geoCode , text }) {
     const dateNew  = new Date();
     const fecha = dateNew.toLocaleDateString("es-ES", options)
 
+    const fechaMayuscula = fecha.charAt(0).toUpperCase() + fecha.slice(1);
 
     return (
 
@@ -127,7 +128,7 @@ function Cards({ geoCode , text }) {
                 <div className='col tempydatos'>
                     <div style={{ marginLeft: 60, width: 558, height: 500 }}>
                         {text.length===0?<p className='title'>Madrid</p> :<p className='title'>{geoCode[0]?.name}</p>}
-                        <p className='today'>{fecha}</p>
+                        <p className='today'>{fechaMayuscula}</p>
                         <div className='weather-temperature'>
 
                         <img className="logoTiempo" style={{ width: 200 }} src={getImageWeather()} alt="" />
@@ -160,7 +161,7 @@ function Cards({ geoCode , text }) {
                 </div>
                 <p className='days-title'>PROXIMOS DIAS</p>
                 <div className='next-days'>
-                
+
                 <NextDays cities={cities} ></NextDays>
                 </div>
            
