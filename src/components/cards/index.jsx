@@ -158,20 +158,12 @@ function Cards({ geoCode }) {
                     ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
                     :""}
                 </div>
-<<<<<<< HEAD
-                {/* <div className='row justify-content-center'>
-                  <Week cities={cities}></Week>
-=======
 
                 <div className='next-days'>
                 <p>PROXIMOS DIAS</p>
                 <NextDays cities={cities} ></NextDays>
                 </div>
-                
-                {/* <div className='row justify-content-center'>
-                    <Week cities={cities}></Week>
->>>>>>> a35e8da7d6fe2328a9bb364ef93b1eaa298151ae
-                </div> */}
+           
             </div>
         </>
     )
