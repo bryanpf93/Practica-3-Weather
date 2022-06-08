@@ -1,4 +1,5 @@
 {
+  "homepage": "http://bryanpf93.github.io/practica-3-weather",
   "name": "practica-3-weather",
   "version": "0.1.0",
   "private": true,
@@ -21,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@types/leaflet": "^1.7.10"
+    "@types/leaflet": "^1.7.10",
+    "gh-pages": "^4.0.0"
   }
 }

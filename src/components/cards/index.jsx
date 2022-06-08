@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css'
-import logo from "../../assets/olassi.svg"
+import logo1 from "../../assets/olassi.svg"
+import logo2 from "../../assets/olasno.svg"
 import Forecast from '../forecast';
 import Week from '../week';
 import sun from '../../assets/tiempo/sol.svg'
@@ -12,12 +13,15 @@ import twoCloud from '../../assets/tiempo/dosnubes.svg'
 import storm from '../../assets/tiempo/tormenta.svg'
 import sunCloud from '../../assets/tiempo/nubesol.svg'
 import { Form } from 'react-bootstrap';
+import NextDays from '../next-days';
+
+
 
 const parseTemperature = (kelvin, type) => type === 'C'
     ? Math.round(kelvin - 273.15)
     : Math.round(((kelvin - 273.15) * 1.8) + 32);
 
-function Cards({ geoCode }) {
+function Cards({ geoCode , text }) {
 
     const [cities, setCities] = useState({})
     const [temperature, setTemperature] = useState({})
@@ -27,7 +31,7 @@ function Cards({ geoCode }) {
 
     useEffect(() => {
         if (geoCode[0]) {
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly,daily&appid=${REACT_API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${geoCode[0]?.lat}&lon=${geoCode[0]?.lon}&exclude=hourly&appid=${REACT_API_KEY}`)
 
 
                 .then(res => res.json())
@@ -104,24 +108,36 @@ function Cards({ geoCode }) {
         }))
     }
 
+    const SurfIcon = () => {
+        if (geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Dakar" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander") {
+            return <img src={logo1} alt=""></img>
+        } else {
+            return <img src={logo2} alt=""></img>
+        };
+    }
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    const dateNew  = new Date();
+    const fecha = dateNew.toLocaleDateString("es-ES", options)
+
+    const fechaMayuscula = fecha.charAt(0).toUpperCase() + fecha.slice(1);
+
     return (
 
         <>
             <div className='maincomp'>
                 <div className='col tempydatos'>
-                    <div style={{ width: 558, height: 500 }}>
-                        <p className='title'>{geoCode[0]?.name}</p>
-                        <p className='today'>{today}</p>
+                    <div style={{ marginLeft: 60, width: 558, height: 500 }}>
+                        {text.length===0?<p className='title'>Madrid</p> :<p className='title'>{geoCode[0]?.name}</p>}
+                        <p className='today'>{fechaMayuscula}</p>
                         <div className='weather-temperature'>
 
-                            <img style={{ width: 200 }} src={getImageWeather()} alt="" />
-                            {/* <img style={{ width: 400 }} src={iconWeather} alt="" /> */}
+                        <img className="logoTiempo" style={{ width: 200 }} src={getImageWeather()} alt="" />
 
                             <div className='celsius-farenheit'>
-                                <p>{parseTemperature(temperature.value, temperature.type)}º{temperature.type}</p>
-                                <div className='d-flex text-light'>
+                                <p className='grades' >{parseTemperature(temperature.value, temperature.type)}º</p>
+                                <div className='d-flex text-light toggle'>
                                     <span className='me-2'>ºC</span>
-                                    <Form.Check
+                                    <Form.Check 
                                         type="switch"
                                         id="custom-switch"
                                         checked={temperature.type === 'F'}
@@ -134,16 +150,21 @@ function Cards({ geoCode }) {
                     </div>
                 </div>
                 <div className='col'>
-                    <img style={{ width: 476 }} className='logo' src={logo} alt="" />
+                   {SurfIcon()}
                 </div>
             </div>
             <div>
                 <div className='row justify-content-center'>
-                    <Forecast cities={cities} geoCode={geoCode}></Forecast>
+                 { geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Dakar" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander" 
+                    ?<Forecast cities={cities} geoCode={geoCode}></Forecast>
+                    :""}
                 </div>
-                <div className='row justify-content-center'>
-                    <Week cities={cities}></Week>
+                <p className='days-title'>PROXIMOS DIAS</p>
+                <div className='next-days'>
+
+                <NextDays cities={cities} ></NextDays>
                 </div>
+           
             </div>
         </>
     )
