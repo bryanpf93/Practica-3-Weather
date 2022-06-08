@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Cards from '../cards';
 import Mapa from '../map';
 import Pictures from '../pictures';
+import Waves from '../../assets/waves.png';
 // import 'leaflet/dist/leaflet.css';
 import '../../assets/bootstrap.css';
 
@@ -27,11 +28,11 @@ function Main() {
         }
     }, [])
 
-
+    
 
     useEffect(() => {
         if (text) {
-            fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_API_KEY}`)
+            fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_API_KEY}&lang=sp,es`)
                 .then(res => res.json())
                 .then(data => setGeoCode(data))
         }
@@ -52,7 +53,7 @@ function Main() {
             <div className='mainContainer'>
                 <div className='container'>
                     <div className='container-pic'>
-                        <p className='waves'>WAVES</p>
+                        <img className='waves' src={Waves}/>
                         <div className='searchbar'>
                             <div className='row justify-content-center'>
                                 <input
@@ -73,10 +74,13 @@ function Main() {
                                             <Mapa geoCode={geoCode}></Mapa>
                                         </div>
                                     </div>
-                                    <div className='row justify-content-center'>
-                                        <p className='pictures-site'>FOTOS DEL SITIO</p>
-                                        <Pictures></Pictures>
-                                    </div>
+                                    { geoCode[0]?.name === "Tarifa" || geoCode[0]?.name === "Dakar" || geoCode[0]?.name === "Laredo" || geoCode[0]?.name === "Santander" 
+                                        ?<div className='row justify-content-center'>
+                                            <p className='pictures-site'>FOTOS DEL SITIO</p>
+                                            <Pictures></Pictures>
+                                        </div>
+                                    :""}
+                                    
                                     <div className="fondo"></div>
                                 </div>
                             )}
