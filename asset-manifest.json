@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/practica-3-weather/static/css/main.5e69cf32.css",
-    "main.js": "/practica-3-weather/static/js/main.82558c30.js",
+    "main.css": "/practica-3-weather/static/css/main.a97cf225.css",
+    "main.js": "/practica-3-weather/static/js/main.b05a66fc.js",
     "static/js/787.53021804.chunk.js": "/practica-3-weather/static/js/787.53021804.chunk.js",
     "static/media/background-hero-1.png": "/practica-3-weather/static/media/background-hero-1.dcc45854bccdf2f1c407.png",
     "static/media/playa3.png": "/practica-3-weather/static/media/playa3.93f6e6770ec705b2a691.png",
@@ -11,6 +11,7 @@
     "static/media/playa4.png": "/practica-3-weather/static/media/playa4.ceb40639b3651b85a349.png",
     "static/media/playa5.png": "/practica-3-weather/static/media/playa5.9b6b6480bde5cae7efc6.png",
     "static/media/playa2.png": "/practica-3-weather/static/media/playa2.f153361c71b432c3dcf0.png",
+    "static/media/olasno.svg": "/practica-3-weather/static/media/olasno.5c18c50b7d2b2e3d7afda8e5b9c0ec86.svg",
     "static/media/olassi.svg": "/practica-3-weather/static/media/olassi.040d195b2904bfdd037950a65b3c55c6.svg",
     "static/media/revicons.eot": "/practica-3-weather/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/practica-3-weather/static/media/revicons.57fd05d4ae650374c8de.ttf",
@@ -42,12 +43,12 @@
     "static/media/icon_mist.svg": "/practica-3-weather/static/media/icon_mist.1c7eafebc2488d49b793.svg",
     "static/media/icon_storm.svg": "/practica-3-weather/static/media/icon_storm.37ee77bb753c3f2c45e2.svg",
     "static/media/tormenta.svg": "/practica-3-weather/static/media/tormenta.3a93e4ef92e0f6d5c3b2ed8ac03f4a50.svg",
-    "main.5e69cf32.css.map": "/practica-3-weather/static/css/main.5e69cf32.css.map",
-    "main.82558c30.js.map": "/practica-3-weather/static/js/main.82558c30.js.map",
+    "main.a97cf225.css.map": "/practica-3-weather/static/css/main.a97cf225.css.map",
+    "main.b05a66fc.js.map": "/practica-3-weather/static/js/main.b05a66fc.js.map",
     "787.53021804.chunk.js.map": "/practica-3-weather/static/js/787.53021804.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e69cf32.css",
-    "static/js/main.82558c30.js"
+    "static/css/main.a97cf225.css",
+    "static/js/main.b05a66fc.js"
   ]
 }
