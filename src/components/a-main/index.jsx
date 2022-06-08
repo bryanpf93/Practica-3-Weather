@@ -31,7 +31,7 @@ function Main() {
 
     useEffect(() => {
         if (text) {
-            fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_API_KEY}`)
+            fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${REACT_API_KEY}`)
                 .then(res => res.json())
                 .then(data => setGeoCode(data))
         }
@@ -66,7 +66,7 @@ function Main() {
                             ? <p>Cargando...</p>
                             : (
                                 <div className='content justify-content-center'>
-                                    <Cards geoCode={geoCode} ></Cards>
+                                    <Cards geoCode={geoCode}></Cards>
                                     <div className='row justify-content-center'>
                                         <p className='site-map'>MAPA DEL SITIO</p>
                                         <div className='container-map' >

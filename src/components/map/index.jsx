@@ -14,6 +14,10 @@ function Mapa({ geoCode }) {
         }
     }, [geoCode])
 
+    const locationTwo = [36.17704, -5.98185];
+
+    
+
     return (
         <MapContainer key={JSON.stringify(location)} className='map' center={location} zoom={13} scrollWheelZoom={false}>
             <TileLayer
@@ -21,6 +25,11 @@ function Mapa({ geoCode }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={location}>
+                <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+            </Marker>
+            <Marker position={locationTwo}>
                 <Popup>
                     A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>

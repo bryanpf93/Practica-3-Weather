@@ -83,6 +83,140 @@ function Forecast({ cities, geoCode }) {
 
     },[geoCode])
 
+    const tides = [
+        {
+            "altura_ola": "0.3",
+            "direccion_ola": "NW",
+            "energia_ola": "15",
+            "periodo": "10",
+            "hora_marea_alta": "19:12",
+            "marea_alta": "3.35",
+            "hora_marea_baja": "1:29",
+            "marea_baja": "0.66"
+
+        },
+        {
+            "altura_ola": "0.1",
+            "direccion_ola": "NE",
+            "energia_ola": "2",
+            "periodo": "8",
+            "hora_marea_alta": "8:15",
+            "marea_alta": "2.80",
+            "hora_marea_baja": "14:17",
+            "marea_baja": "0.93"
+        },
+        {
+            "altura_ola": "0.6",
+            "direccion_ola": "NNW",
+            "energia_ola": "23",
+            "periodo": "6",
+            "hora_marea_alta": "9:52",
+            "marea_alta": "2.70",
+            "hora_marea_baja": "15:54",
+            "marea_baja": "1.16"
+        },
+        {
+            "altura_ola": "0.5",
+            "direccion_ola": "WNW",
+            "energia_ola": "66",
+            "periodo": "11",
+            "hora_marea_alta": "10:52",
+            "marea_alta": "2.89",
+            "hora_marea_baja": "16:55",
+            "marea_baja": "1.21"
+        },
+        {
+            "altura_ola": "1",
+            "direccion_ola": "S",
+            "energia_ola": "102",
+            "periodo": "7",
+            "hora_marea_alta": "9:35",
+            "marea_alta": "1.45",
+            "hora_marea_baja": "15:35",
+            "marea_baja": "0.66"
+        },
+        {
+            "altura_ola": "1.4",
+            "direccion_ola": "W",
+            "energia_ola": "384",
+            "periodo": "10",
+            "hora_marea_alta": "17:52",
+            "marea_alta": "1.85",
+            "hora_marea_baja": "12:09",
+            "marea_baja": "0.36"
+        },
+        {
+            "altura_ola": "0.7",
+            "direccion_ola": "WNW",
+            "energia_ola": "142",
+            "periodo": "12",
+            "hora_marea_alta": "9:57",
+            "marea_alta": "1.62",
+            "hora_marea_baja": "4:29",
+            "marea_baja": "0.57"
+        },
+        {
+            "altura_ola": "0.5",
+            "direccion_ola": "NW",
+            "energia_ola": "18",
+            "periodo": "6",
+            "hora_marea_alta": "9:44",
+            "marea_alta": "2.90",
+            "hora_marea_baja": "15:43",
+            "marea_baja": "1.43"
+        },
+        {
+            "altura_ola": "0.7",
+            "direccion_ola": "SW",
+            "energia_ola": "123",
+            "periodo": "11",
+            "hora_marea_alta": "10:46",
+            "marea_alta": "2.86",
+            "hora_marea_baja": "16:47",
+            "marea_baja": "1.47"
+        },
+        {
+            "altura_ola": "0.3",
+            "direccion_ola": "SE",
+            "energia_ola": "6",
+            "periodo": "6",
+            "hora_marea_alta": "8:13",
+            "marea_alta": "2.84",
+            "hora_marea_baja": "14:15",
+            "marea_baja": "0.90"
+        },
+        {
+            "altura_ola": "0.8",
+            "direccion_ola": "WNW",
+            "energia_ola": "174",
+            "periodo": "12",
+            "hora_marea_alta": "10:50",
+            "marea_alta": "2.57",
+            "hora_marea_baja": "14:52",
+            "marea_baja": "1.17"
+        },
+        {
+            "altura_ola": "0.9",
+            "direccion_ola": "NW",
+            "energia_ola": "60",
+            "periodo": "6",
+            "hora_marea_alta": "8:26",
+            "marea_alta": "1.95",
+            "hora_marea_baja": "14:26",
+            "marea_baja": "0.88"
+        }
+    ]
+
+    // return random object of tides
+    let  getTides = () => {
+        const random = Math.floor(Math.random() * tides.length);
+        return tides[random];
+    }
+
+    console.log(getTides());
+
+    
+
 
     return (
         
@@ -90,28 +224,28 @@ function Forecast({ cities, geoCode }) {
             <div className='container_single'>
                 <p>ALTURA OLA</p>
                 <img src={height} alt="" />
-                <p style={{ fontSize: 70 }}>{sgResponse?.waveHeight?.sg}<span style={{ fontSize: 30 }}> m</span></p>
+                <p style={{ fontSize: 70 }}> {getTides().altura_ola}</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCIÓN OLA</p>
                 <img src={direction} alt="" />
-                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.waveDirection?.sg)}</p>
+                <p style={{ fontSize: 50 }}>{getTides().direccion_ola}</p>
             </div>
             <div className='container_single'>
                 <p>VIENTO</p>
                 <img src={wind} alt="" />
-                <p style={{ fontSize: 60 }}>{sgResponse?.windSpeed?.sg}<span style={{ fontSize: 20 }}>m/s</span></p>
+                <p style={{ fontSize: 60 }}>{cities?.current?.wind_speed}</p>
             </div>
             <div className='container_single'>
                 <p>DIRECCION</p>
                 <img src={windDir} alt="" />
-                <p style={{ fontSize: 50 }}>{degreesToCoordinates(sgResponse?.windDirection?.sg)}</p>
+                <p style={{ fontSize: 50 }}>{getTides().direccion_ola}</p>
             </div>
             <div className='container_single'>
                 <p>PROBABILIDAD</p>
                 <img src={rain} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{20}</p>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{randomEnergy}</p>
                     <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
                 </div>
             </div>
@@ -123,8 +257,8 @@ function Forecast({ cities, geoCode }) {
                         <p>BAJA</p>
                     </div>
                     <div>
-                        <p style={{ fontSize: 40, margin: 0 }}>08:00H</p>
-                        <p style={{ fontSize: 24 }}>0.92m</p>
+                        <p style={{ fontSize: 40, margin: 0 }}>{getTides().hora_marea_baja}</p>
+                        <p style={{ fontSize: 24 }}>{getTides().marea_baja}</p>
                     </div>
                 </div>
                 <div className='sub-container'>
@@ -134,8 +268,8 @@ function Forecast({ cities, geoCode }) {
                         <p>ALTA</p>
                     </div>
                     <div>
-                        <p style={{ fontSize: 40, margin: 0 }}>18:52H</p>
-                        <p style={{ fontSize: 24 }}>1.90m</p>
+                        <p style={{ fontSize: 40, margin: 0 }}>{getTides().hora_marea_alta}</p>
+                        <p style={{ fontSize: 24 }}>{getTides().marea_alta}</p>
                     </div>
                 </div>
             </div>
@@ -151,8 +285,9 @@ function Forecast({ cities, geoCode }) {
                 <p>HUMEDAD</p>
                 <img src={humidity} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 60, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.humidity?.sg}<span style={{ fontSize: 40 }}>%</span></p>
-                </div>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{cities?.current?.humidity}</p>
+                    <p style={{ fontSize: 40, marginBottom: 30 }}>%</p>
+                </div>    
             </div>
             <div className='container_double'>
                 <div className='sub-container'>
@@ -170,8 +305,9 @@ function Forecast({ cities, geoCode }) {
                 <p>PERIODO OLA</p>
                 <img src={period} alt="" />
                 <div className='container-prob'>
-                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{sgResponse?.wavePeriod?.sg}<span style={{ fontSize: 20 }}>seg</span></p>
-                </div>
+                    <p style={{ fontSize: 80, display: 'flex', alignItems: 'flex-end' }}>{getTides().periodo}</p>
+                    <p style={{ fontSize: 40, marginBottom: 30 }}>seg</p>
+                </div>    
             </div>
         </div>
     )

@@ -11,7 +11,6 @@
     width: 494.67px;
     height: 315px;
     margin: 40px 40px 20px 30px;
-    padding-top: 80px;
 }
 
 .containers-cities{
@@ -48,6 +47,12 @@
 
 .weather-temperature{
     display: flex;
+}
+
+.grades{
+
+    font-size: 140px;
+
 }
 
 
